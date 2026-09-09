@@ -1,0 +1,202 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// AUTH & RBAC - roles como String para compat sqlite
+model User {
+  id               String   @id @default(cuid())
+  name             String
+  email            String   @unique
+  password         String
+  role             String   @default("RECEPCION") // ADMIN | RECEPCION | LIMPIEZA | CONTABILIDAD
+  image            String?
+  twoFactorEnabled Boolean  @default(false)
+  twoFactorSecret  String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  reservations     Reservation[] @relation("CreatedBy")
+  assignedChats    WhatsAppConversation[] @relation("AssignedTo")
+}
+
+model HotelSettings {
+  id                 String   @id @default(cuid())
+  name               String   @default("Hotel Quintas de Bogotá")
+  address            String   @default("Cl. 22 Bis #44A-19, Teusaquillo, Bogotá")
+  phone              String   @default("+57 317 6760460")
+  email              String   @default("hotelquintasdebogota@gmail.com")
+  checkInTime        String   @default("14:00")
+  checkOutTime       String   @default("12:00")
+  cancellationPolicy String   @default("Cancelación gratuita 48h antes.")
+  bookingSyncEnabled Boolean  @default(false)
+  whatsappEnabled    Boolean  @default(false)
+  bookingApiKey      String?
+  bookingSecret      String?
+  whatsappToken      String?
+  whatsappPhoneId    String?
+  whatsappVerifyToken String?
+  updatedAt          DateTime @updatedAt
+}
+
+model RoomType {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String
+  capacity    Int
+  basePrice   Int
+  amenities   String   // JSON string array
+  images      String   // JSON string array
+  rooms       Room[]
+  reservations Reservation[]
+  createdAt   DateTime @default(now())
+}
+
+model Room {
+  id           String   @id @default(cuid())
+  number       String   @unique
+  floor        Int
+  typeId       String
+  type         RoomType @relation(fields: [typeId], references: [id], onDelete: Cascade)
+  status       String   @default("DISPONIBLE") // DISPONIBLE | OCUPADA | LIMPIEZA | MANTENIMIENTO | BLOQUEADA
+  notes        String?
+  images       String? // JSON
+  reservations Reservation[]
+  blockedDates BlockedDate[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model BlockedDate {
+  id        String   @id @default(cuid())
+  roomId    String
+  room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  start     DateTime
+  end       DateTime
+  reason    String?
+  createdAt DateTime @default(now())
+}
+
+model Guest {
+  id          String   @id @default(cuid())
+  name        String
+  email       String?
+  phone       String?
+  documentId  String?
+  nationality String?
+  preferences String?
+  notes       String?
+  totalStays  Int      @default(0)
+  reservations Reservation[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Reservation {
+  id            String   @id @default(cuid())
+  code          String   @unique
+  guestId       String
+  guest         Guest    @relation(fields: [guestId], references: [id])
+  roomId        String?
+  room          Room?    @relation(fields: [roomId], references: [id])
+  roomTypeId    String
+  roomType      RoomType @relation(fields: [roomTypeId], references: [id])
+  checkIn       DateTime
+  checkOut      DateTime
+  adults        Int      @default(2)
+  children      Int      @default(0)
+  status        String   @default("PENDIENTE") // PENDIENTE | CONFIRMADA | CHECKIN | CHECKOUT | CANCELADA | NOSHOW
+  source        String   @default("WEB") // WEB | BOOKING | WHATSAPP | WALKIN | MANUAL
+  externalId    String?
+  totalPrice    Int
+  paidAmount    Int      @default(0)
+  paymentStatus String   @default("PENDIENTE") // PENDIENTE | PAGADO | PARCIAL | REEMBOLSADO
+  notes         String?
+  internalNotes String?
+  createdById   String?
+  createdBy     User?    @relation("CreatedBy", fields: [createdById], references: [id])
+  payments      Payment[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([checkIn, checkOut])
+  @@index([status])
+  @@index([source])
+}
+
+model Payment {
+  id            String   @id @default(cuid())
+  reservationId String
+  reservation   Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+  amount        Int
+  method        String   // EFECTIVO | TRANSFERENCIA | TARJETA | WOMPI | PAYU
+  status        String   @default("PAGADO")
+  reference     String?
+  createdAt     DateTime @default(now())
+}
+
+model RateSeason {
+  id         String   @id @default(cuid())
+  name       String
+  start      DateTime
+  end        DateTime
+  multiplier Float    @default(1.2)
+  roomTypeId String?
+  createdAt  DateTime @default(now())
+}
+
+model WhatsAppConversation {
+  id            String   @id @default(cuid())
+  phone         String
+  contactName   String?
+  lastMessageAt DateTime @default(now())
+  unreadCount   Int      @default(0)
+  assignedToId  String?
+  assignedTo    User?    @relation("AssignedTo", fields: [assignedToId], references: [id])
+  messages      WhatsAppMessage[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model WhatsAppMessage {
+  id             String   @id @default(cuid())
+  conversationId String
+  conversation   WhatsAppConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  direction      String   // INBOUND | OUTBOUND
+  text           String
+  templateName   String?
+  status         String?
+  createdAt      DateTime @default(now())
+}
+
+model WhatsAppTemplate {
+  id       String @id @default(cuid())
+  name     String @unique
+  category String
+  language String @default("es")
+  body     String
+  status   String @default("APPROVED")
+}
+
+model SyncLog {
+  id        String   @id @default(cuid())
+  source    String
+  action    String
+  payload   String? // JSON string
+  status    String
+  message   String?
+  createdAt DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  createdAt DateTime @default(now())
+}
