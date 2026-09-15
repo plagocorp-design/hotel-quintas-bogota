@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { useState } from "react"
@@ -30,11 +31,13 @@ export default function Sidebar(){
   const NavContent = ({ isCollapsed }: { isCollapsed: boolean }) => (
     <>
       <div className={cn("p-4 border-b border-white/10 flex items-center gap-3", isCollapsed && "justify-center p-3")}>
-        {!isCollapsed && (
-          <div className="flex-1">
-            <div className="font-serif font-bold leading-none">Hotel Quintas</div>
-            <div className="text-xs text-white/60">PMS · Admin</div>
+        {!isCollapsed ? (
+          <div className="flex-1 flex items-center gap-2">
+            <Image src="/logo-hotel.jpg" alt="Hotel Quintas" width={120} height={48} className="h-8 w-auto object-contain" />
+            <div className="text-xs text-white/60 leading-none">PMS · Admin</div>
           </div>
+        ) : (
+          <div className="h-8 w-8 rounded-lg bg-[#000000] border border-[#C9A86A]/30 grid place-items-center font-serif font-bold text-[#C9A86A]">H</div>
         )}
         <button
           onClick={()=>setCollapsed(!isCollapsed)}

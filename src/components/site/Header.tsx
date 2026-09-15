@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -17,11 +18,14 @@ export default function Header(){
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-[#F0E6D2]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-xl bg-[#000000] text-white grid place-items-center font-serif font-bold">HQ</div>
-          <div>
-            <div className="font-serif font-bold leading-none text-[#000000]">Hotel Quintas</div>
-            <div className="text-xs tracking-widest text-[#C9A86A]">DE BOGOTÁ</div>
-          </div>
+          <Image
+            src="/logo-hotel.jpg"
+            alt="Hotel Quintas de Bogotá"
+            width={160}
+            height={64}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {nav.map(n=> <Link key={n.href} href={n.href} className="text-sm text-[#000000]/80 hover:text-[#000000]">{n.label}</Link>)}
