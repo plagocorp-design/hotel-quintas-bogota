@@ -19,7 +19,7 @@ export default function Header(){
       <div className="mx-auto max-w-7xl px-4 sm:px-6 flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo-hotel.jpg"
+            src="/logo-black.png"
             alt="Hotel Quintas de Bogotá"
             width={160}
             height={64}

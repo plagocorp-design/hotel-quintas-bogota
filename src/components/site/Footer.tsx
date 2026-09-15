@@ -6,7 +6,7 @@ export default function Footer(){
     <footer className="bg-[#000000] text-white mt-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 grid md:grid-cols-4 gap-8">
         <div>
-          <Image src="/logo-hotel.jpg" alt="Hotel Quintas de Bogotá" width={180} height={72} className="h-14 w-auto object-contain" />
+          <Image src="/logo-black.png" alt="Hotel Quintas de Bogotá" width={180} height={72} className="h-14 w-auto object-contain brightness-0 invert" />
           <p className="text-sm text-white/70 mt-3">{hotel.address}<br/>Tel: {hotel.phone} · {hotel.email}</p>
           <div className="mt-4 flex gap-2">
             <a href={hotel.whatsappUrl()} target="_blank" className="bg-[#25D366] text-white px-4 py-2 rounded-full text-sm">WhatsApp</a>
