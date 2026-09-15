@@ -38,9 +38,7 @@ export async function GET(req: NextRequest) {
       }, {} as Record<string, number>)
     ),
     prisma.analyticsEvent.groupBy({ by: ["referrer"], where: { createdAt: { gte: since }, referrer: { not: null }, event: "page_view" }, _count: { referrer: true }, orderBy: { _count: { referrer: "desc" } }, take: 10 }),
-    prisma.analyticsEvent.groupBy({ by: ["userAgent"], where: { createdAt: { gte: since }, event: "page_view" }, _count: { userAgent: true }, take: 1 }).then(() => {
-      return { note: "Device breakdown computed from userAgent" };
-    }),
+    Promise.resolve({ note: "Device breakdown computed from userAgent" }),
   ]);
 
   return NextResponse.json({

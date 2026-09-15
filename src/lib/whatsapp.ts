@@ -1,5 +1,20 @@
 const HOTEL_WHATSAPP = "573176760460";
 
+// Emojis via Unicode escapes - never break in URLs
+const E = {
+  hotel: "\uD83C\uDFE8",
+  calendar: "\uD83D\uDCC5",
+  moon: "\uD83C\uDF19",
+  people: "\uD83D\uDC65",
+  bed: "\uD83D\uDECF\uFE0F",
+  person: "\uD83D\uDC64",
+  phone: "\uD83D\uDCF1",
+  note: "\uD83D\uDCDD",
+  money: "\uD83D\uDCB0",
+  check: "\u2705",
+  plane: "\u2708\uFE0F",
+};
+
 export interface BookingData {
   name?: string;
   phone?: string;
@@ -43,21 +58,21 @@ export function buildBookingMessage(data: BookingData): string {
   const pricePerNight = ROOM_PRICES[roomSlug] || 90000;
   const total = pricePerNight * n * Math.max(1, (data.adults || 2) > 2 ? Math.ceil((data.adults || 2) / 2) : 1);
 
-  let msg = "Hola, quiero reservar en Hotel Quintas de Bogotá.\n\n";
-  msg += "Llegada: " + formatDateES(data.checkIn || "") + "\n";
-  msg += "Salida: " + formatDateES(data.checkOut || "") + "\n";
-  msg += "Noches: " + n + "\n";
-  msg += "Personas: " + (data.adults || 2) + " adulto(s)";
-  if ((data.children || 0) > 0) msg += " + " + data.children + " niño(s)";
+  let msg = "\u00A1Hola, quiero reservar en Hotel Quintas de Bogot\u00E1 " + E.hotel + "\n\n";
+  msg += E.calendar + " *Llegada:* " + formatDateES(data.checkIn || "") + "\n";
+  msg += E.calendar + " *Salida:* " + formatDateES(data.checkOut || "") + "\n";
+  msg += E.moon + " *Noches:* " + n + "\n";
+  msg += E.people + " *Personas:* " + (data.adults || 2) + " adulto(s)";
+  if ((data.children || 0) > 0) msg += " + " + data.children + " ni\u00F1o(s)";
   msg += "\n";
-  msg += "Tipo: " + (data.roomType || "doble").charAt(0).toUpperCase() + (data.roomType || "doble").slice(1) + "\n";
+  msg += E.bed + " *Tipo:* " + (data.roomType || "doble").charAt(0).toUpperCase() + (data.roomType || "doble").slice(1) + "\n";
 
-  if (data.name) msg += "\nNombre: " + data.name + "\n";
-  if (data.phone) msg += "Teléfono: " + data.phone + "\n";
-  if (data.notes) msg += "\nNota: " + data.notes + "\n";
+  if (data.name) msg += "\n" + E.person + " *Nombre:* " + data.name + "\n";
+  if (data.phone) msg += E.phone + " *Tel\u00E9fono:* " + data.phone + "\n";
+  if (data.notes) msg += "\n" + E.note + " *Nota:* " + data.notes + "\n";
 
-  msg += "\nPrecio estimado: " + formatCOP(total) + " (" + n + " noche(s))";
-  msg += "\n\n¿Tienen disponibilidad? Gracias.";
+  msg += "\n" + E.money + " *Precio estimado:* " + formatCOP(total) + " (" + n + " noche(s))";
+  msg += "\n\n\u00BFTienen disponibilidad? \u00A1Gracias!";
 
   return msg;
 }
@@ -68,17 +83,17 @@ export function buildBookingUrl(data: BookingData): string {
 }
 
 export function buildConfirmationMessage(reservationCode: string, data: BookingData): string {
-  let msg = "Confirmación de reserva\n\n";
-  msg += "Código: " + reservationCode + "\n";
-  msg += "Hotel Quintas de Bogotá\n\n";
-  msg += "Llegada: " + formatDateES(data.checkIn || "") + "\n";
-  msg += "Salida: " + formatDateES(data.checkOut || "") + "\n";
-  msg += "Habitación: " + (data.roomType || "doble").charAt(0).toUpperCase() + (data.roomType || "doble").slice(1) + "\n";
-  msg += (data.adults || 2) + " adulto(s)";
-  if ((data.children || 0) > 0) msg += " + " + data.children + " niño(s)";
+  let msg = E.check + " *Confirmaci\u00F3n de reserva*\n\n";
+  msg += "C\u00F3digo: *" + reservationCode + "*\n";
+  msg += "Hotel Quintas de Bogot\u00E1\n\n";
+  msg += E.calendar + " Llegada: " + formatDateES(data.checkIn || "") + "\n";
+  msg += E.calendar + " Salida: " + formatDateES(data.checkOut || "") + "\n";
+  msg += E.bed + " Habitaci\u00F3n: " + (data.roomType || "doble").charAt(0).toUpperCase() + (data.roomType || "doble").slice(1) + "\n";
+  msg += E.people + " " + (data.adults || 2) + " adulto(s)";
+  if ((data.children || 0) > 0) msg += " + " + data.children + " ni\u00F1o(s)";
   msg += "\n";
-  if (data.name) msg += "\n" + data.name + "\n";
-  msg += "\nReservé en hotelquintasdebogota.com. ¿Me pueden confirmar la habitación? Gracias.";
+  if (data.name) msg += "\n" + E.person + " " + data.name + "\n";
+  msg += "\nReserv\u00E9 en hotelquintasdebogota.com. \u00BFMe pueden confirmar la habitaci\u00F3n? \u00A1Gracias!";
 
   return msg;
 }
@@ -89,9 +104,9 @@ export function buildConfirmationUrl(reservationCode: string, data: BookingData)
 }
 
 export function buildDefaultUrl(): string {
-  return "https://wa.me/" + HOTEL_WHATSAPP + "?text=" + encodeURIComponent("Hola, Hotel Quintas de Bogotá. Quiero información sobre disponibilidad y precios.");
+  return "https://wa.me/" + HOTEL_WHATSAPP + "?text=" + encodeURIComponent("\u00A1Hola! Hotel Quintas de Bogot\u00E1. Quiero informaci\u00F3n sobre disponibilidad y precios.");
 }
 
 export function buildAdvisoryUrl(): string {
-  return "https://wa.me/" + HOTEL_WHATSAPP + "?text=" + encodeURIComponent("Hola, me gustaría recibir asesoría sobre hospedaje en Bogotá.");
+  return "https://wa.me/" + HOTEL_WHATSAPP + "?text=" + encodeURIComponent("\u00A1Hola! Me gustar\u00EDa recibir asesor\u00EDa sobre hospedaje en Bogot\u00E1.");
 }
