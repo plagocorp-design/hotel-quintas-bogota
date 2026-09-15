@@ -9,7 +9,7 @@ export async function signToken(payload: { id: string; email: string; role: stri
   return await new jose.SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("7d")
+    .setExpirationTime("365d")
     .sign(secret);
 }
 

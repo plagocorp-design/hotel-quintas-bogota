@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/",
-        destination: "/whatsapp",
+        destination: "/whatsapp-inbox",
         has: [{ type: "host", value: "whatsapp.hotelquintasdebogota.com" }],
       },
     ];
