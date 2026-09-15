@@ -13,6 +13,7 @@ const items=[
   {href:"/admin/whatsapp",label:"WhatsApp",icon:"💬"},
   {href:"/admin/huespedes",label:"Huéspedes",icon:"👥"},
   {href:"/admin/tarifas",label:"Tarifas",icon:"💰"},
+  {href:"/admin/analytics",label:"Estadísticas",icon:"📊"},
   {href:"/admin/reportes",label:"Reportes",icon:"📈"},
   {href:"/admin/configuracion",label:"Configuración",icon:"⚙️"},
 ]

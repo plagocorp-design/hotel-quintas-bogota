@@ -200,3 +200,21 @@ model ContactMessage {
   message   String
   createdAt DateTime @default(now())
 }
+
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  event     String   // page_view, click, whatsapp_open, reservation_start, reservation_step, scroll, cta_click
+  page      String   // /, /reservas, /hotel-cerca-embajada-americana-bogota, etc
+  label     String?  // "whatsapp_button", "reservar_btn", "nav_link", etc
+  value     String?  // extra data: step number, scroll percentage, etc
+  referrer  String?
+  userAgent String?
+  ip        String?
+  sessionId String?  // anonymous session tracking
+  createdAt DateTime @default(now())
+
+  @@index([event])
+  @@index([page])
+  @@index([createdAt])
+  @@index([sessionId])
+}

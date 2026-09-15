@@ -62,6 +62,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
       </head>
       <body className="min-h-full flex flex-col bg-[#FFFFFF]" suppressHydrationWarning>{children}
+      <script dangerouslySetInnerHTML={{__html: `
+        (function(){
+          function getSid(){var s=sessionStorage.getItem('hq_sid');if(!s){s=(crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2)+Date.now().toString(36));sessionStorage.setItem('hq_sid',s)}return s}
+          function track(ev,pg,lb,vl){try{var b={event:ev,page:pg,label:lb||null,value:vl||null,referrer:document.referrer||null,sessionId:getSid()};navigator.sendBeacon?navigator.sendBeacon('/api/analytics/track',new Blob([JSON.stringify(b)],{type:'application/json'})):fetch('/api/analytics/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)})}catch(e){}}
+          track('page_view',location.pathname);
+          document.addEventListener('click',function(e){
+            var a=e.target.closest('a[href]');if(!a)return;
+            var href=a.getAttribute('href')||'';
+            if(href.indexOf('wa.me/')>-1||href.indexOf('whatsapp')>-1)track('whatsapp_open',location.pathname,href.substring(0,80));
+            else if(href.indexOf('/reservas')>-1)track('cta_click',location.pathname,'reservar');
+          });
+        })();
+      `}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify({
         "@context":"https://schema.org","@type":"Hotel",name:"Hotel Quintas de Bogotá",
         url:"https://hotelquintasdebogota.com",
