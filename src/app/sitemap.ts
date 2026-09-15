@@ -42,18 +42,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/guia-teusaquillo-hotel",
   ];
 
-  const mainSitemap = mainPages.map((p) => ({
+  const mainSitemap: MetadataRoute.Sitemap = mainPages.map((p) => ({
     url: `${base}${p}`,
     lastModified: now,
-    changeFrequency: p === "" ? "daily" : "weekly" as const,
+    changeFrequency: (p === "" ? "daily" : "weekly") as MetadataRoute.Sitemap[number]["changeFrequency"],
     priority: p === "" ? 1 : p.startsWith("/hotel-cerca") ? 0.9 : 0.7,
   }));
 
   // Páginas de ciudades
-  const citySitemap = cities.map((c) => ({
+  const citySitemap: MetadataRoute.Sitemap = cities.map((c) => ({
     url: `${base}/${c.slug}`,
     lastModified: now,
-    changeFrequency: "weekly" as const,
+    changeFrequency: "weekly" as MetadataRoute.Sitemap[number]["changeFrequency"],
     priority: 0.8,
   }));
 

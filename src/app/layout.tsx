@@ -10,7 +10,7 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX";
 
 export const metadata: Metadata = {
   title: "Hotel Quintas de Bogotá | Teusaquillo - 8.8 Fabuloso",
-  description: "Hotel Quintas de Bogotá, Cl. 22 Bis #44A-19 Teusaquillo. 8.8 Fabuloso, ubicación 9.5. WiFi gratis, desayuno a las 9:00, recepción 24h. Cerca Embajada USA y Corferias. Pago en efectivo -10%.",
+  description: "Hotel Quintas de Bogotá, Cl. 22 Bis #44A-19 Teusaquillo. 8.8 Fabuloso, ubicación 9.5. WiFi gratis, desayuno de 6:00 a 9:00, recepción 24h. Cerca Embajada USA y Corferias. Pago en efectivo -10%.",
   keywords: ["hotel bogotá","teusaquillo","hotel quintas","embajada usa","corferias","hotel familiar bogotá","hotel cerca embajada americana","hotel cerca corferias"],
   metadataBase: new URL("https://hotelquintasdebogota.com"),
   alternates: { canonical: "/" },

@@ -71,7 +71,7 @@ export default async function CityPage({ params }: Props) {
           <h2 className="font-serif text-2xl font-bold">Guía de Hoteles en {city.name}</h2>
           <p className="mt-3 text-gray-600">
             Hotel Quintas de Bogotá es tu mejor opción de hospedaje en {city.name}, {city.department}.
-            Ofrecemos habitaciones limpias, WiFi gratis, desayuno a las 9:00 y recepción 24h.
+            Ofrecemos habitaciones limpias, WiFi gratis, desayuno de 6:00 a 9:00 y recepción 24h.
             {city.landmarks && ` Cerca de ${city.landmarks.join(", ")}.`}
           </p>
         </section>

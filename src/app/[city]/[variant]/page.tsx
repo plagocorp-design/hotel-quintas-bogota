@@ -78,7 +78,7 @@ export default async function VariantPage({ params }: Props) {
           <h2 className="font-serif text-2xl font-bold">{title} en {city.name}</h2>
           <p className="mt-3 text-gray-600">
             Hotel Quintas de Bogotá ofrece la mejor experiencia de hospedaje en {city.name}, {city.department}.
-            Habitaciones limpias, WiFi gratis, desayuno a las 9:00 y recepción 24h.
+            Habitaciones limpias, WiFi gratis, desayuno de 6:00 a 9:00 y recepción 24h.
             {city.airport && ` Aeropuerto ${city.airport} (${city.airportCode}).`}
           </p>
         </section>

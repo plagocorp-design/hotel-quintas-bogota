@@ -15,7 +15,7 @@ export default function Servicios(){
           <div className="font-semibold">Normas de la casa</div>
           <ul className="text-sm mt-2 space-y-1 list-disc pl-5">
             <li>Check-in desde 14:00</li>
-            <li>Check-out a las 14:30</li>
+            <li>Check-out a las 12:30</li>
             <li>No se admiten mascotas · No fumar</li>
             <li>Cancelación gratuita 24h</li>
             <li>Desayuno servido a las 9:00</li>

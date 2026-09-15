@@ -8,12 +8,12 @@ import { hotel } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Hotel Cerca Embajada Americana Bogotá - A 7 Min a Pie | Quintas",
-  description: "¿Cita para visa USA? Duerme a 7 min a pie de la Embajada. Hotel Quintas 9.5 en ubicación, desayuno a las 9:00 y tranquilidad. 470+ reseñas 8.8. ¡Reserva directa!",
+  description: "¿Cita para visa USA? Duerme a 7 min a pie de la Embajada. Hotel Quintas 9.5 en ubicación, desayuno de 6:00 a 9:00 y tranquilidad. 470+ reseñas 8.8. ¡Reserva directa!",
   keywords: ["hotel cerca embajada americana bogota","hotel para visa americana bogota","donde dormir cita embajada usa","hotel cerca embajada usa bogota"],
   alternates: { canonical: "https://hotelquintasdebogota.com/hotel-cerca-embajada-americana-bogota" },
   openGraph: {
     title: "Hotel a 7 Min de la Embajada Americana - Hotel Quintas",
-    description: "A 7 min a pie de la Embajada USA. Desayuno a las 9:00, guarda-equipaje y tranquilidad total. 8.8 Fabuloso.",
+    description: "A 7 min a pie de la Embajada USA. desayuno de 6:00 a 9:00, guarda-equipaje y tranquilidad total. 8.8 Fabuloso.",
     type: "website",
   },
 };
@@ -85,7 +85,7 @@ export default function EmbajadaPage() {
           <Card className="p-6 bg-[#F5F1E8] border-[#C9A86A]/30">
             <h3 className="font-semibold">Checklist que te enviamos al reservar</h3>
             <ul className="mt-3 text-sm space-y-1 list-disc pl-5">
-              <li>Desayuno a las 9:00</li>
+              <li>desayuno de 6:00 a 9:00</li>
               <li>Guarda-equipaje hasta las 6pm sin costo</li>
               <li>Check-in desde las 14:00</li>
               <li>Impresión de DS-160 en recepción</li>

@@ -16,7 +16,7 @@ async function main() {
       phone: "+57 317 6760460",
       email: "hotelquintasdebogota@gmail.com",
       checkInTime: "14:00",
-      checkOutTime: "14:30",
+      checkOutTime: "12:30",
       cancellationPolicy: "Cancelación gratuita 24h antes. Después se cobra 1 noche.",
     },
   });
