@@ -92,7 +92,7 @@ export default async function VariantPage({ params }: Props) {
               <li>Desayuno casero a las 9:00</li>
               <li>Recepción 24h</li>
               <li>Cancelación gratuita 24h</li>
-              <li>Pago en efectivo con -10%</li>
+             
             </ul>
           </Card>
           <Card className="p-6">

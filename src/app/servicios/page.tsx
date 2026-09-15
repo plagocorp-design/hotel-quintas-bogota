@@ -20,7 +20,7 @@ export default function Servicios(){
             <li>Cancelación gratuita 24h</li>
             <li>Desayuno servido a las 9:00</li>
             <li>Parqueadero desde $10.000 (consultar según vehículo)</li>
-            <li>Métodos de pago: Efectivo (-10%), transferencia Nequi/Daviplata, Visa, Master</li>
+            <li>Métodos de pago: Efectivo, transferencia Nequi/Daviplata, Visa, Master</li>
             <li>Guarda-equipaje y plancha sin costo</li>
           </ul>
         </div>

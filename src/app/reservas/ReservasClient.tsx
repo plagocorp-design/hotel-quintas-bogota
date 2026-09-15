@@ -169,7 +169,7 @@ export default function ReservasClient() {
                 <div>👥 {data.adults} adulto(s){data.children > 0 ? ` + ${data.children} niño(s)` : ""}</div>
                 <div>🛏️ Habitación {room.name}</div>
                 <div className="font-bold text-lg mt-2">💰 {formatCOP(total)}</div>
-                <div className="text-xs text-gray-500">Pago en efectivo con -10% descuento</div>
+               
               </div>
 
               <div className="space-y-3">

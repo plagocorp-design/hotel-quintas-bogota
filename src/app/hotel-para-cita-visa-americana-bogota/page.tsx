@@ -83,7 +83,7 @@ export default function ParaCitaVisaPage() {
               <li>✓ <b>Impresión DS-160</b> en el acto</li>
               <li>✓ Recepción 24h si necesitas despertador</li>
               <li>✓ Cancelación gratuita 24h antes</li>
-              <li>✓ Pago en efectivo con <b>-10%</b> de descuento</li>
+             
             </ul>
           </Card>
         </div>

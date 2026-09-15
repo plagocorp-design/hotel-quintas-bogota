@@ -28,7 +28,7 @@ export default function HotelCitaVisaUSA() {
     mainEntity: [
       { "@type": "Question", name: "¿Cómo reservo mi hotel para la cita de visa USA?", acceptedAnswer: { "@type": "Answer", text: "Puedes reservar directamente por nuestro sitio web en /reservas, por WhatsApp al +573176760460 o por teléfono. No cobramos comisión por reserva directa." } },
       { "@type": "Question", name: "¿Cuál es la política de cancelación?", acceptedAnswer: { "@type": "Answer", text: "Cancelación gratuita hasta 24 horas antes del check-in. Solo avísanos por WhatsApp y procesamos el reembolso sin preguntas. Sin penalidades." } },
-      { "@type": "Question", name: "¿Qué formas de pago aceptan?", acceptedAnswer: { "@type": "Answer", text: "Aceptamos efectivo, tarjeta de crédito, débito y transferencia bancaria. En efectivo tienes 10% de descuento adicional." } },
+      { "@type": "Question", name: "¿Qué formas de pago aceptan?", acceptedAnswer: { "@type": "Answer", text: "Aceptamos efectivo, tarjeta de crédito, débito y transferencia bancaria. Aceptamos efectivo, tarjeta y transferencia." } },
       { "@type": "Question", name: "¿Hay disponibilidad la noche antes de mi cita?", acceptedAnswer: { "@type": "Answer", text: "Tenemos disponibilidad la mayoría de noches. Te recomendamos reservar con 1-2 semanas de anticipación para asegurar tu habitación. Por WhatsApp confirmamos disponibilidad en tiempo real." } },
       { "@type": "Question", name: "¿Puedo modificar mi reserva si cambia la fecha de mi cita?", acceptedAnswer: { "@type": "Answer", text: "Sí, puedes cambiar la fecha de tu reserva sin costo adicional siempre que avises con 24 horas de anticipación. Llámanos por WhatsApp y lo resolvemos." } },
       { "@type": "Question", name: "¿Qué incluye mi reserva?", acceptedAnswer: { "@type": "Answer", text: "Habitación privada con baño, desayuno de 6:00-9:00, guarda-equipaje gratis, WiFi, recepción 24h y cancelación gratuita 24h. Todo sin cargos ocultos." } },
@@ -80,7 +80,7 @@ export default function HotelCitaVisaUSA() {
               <li>✓ <b>Sin comisión</b> por reserva online</li>
               <li>✓ <b>Cancelación gratuita</b> 24h antes</li>
               <li>✓ <b>Pago flexible:</b> efectivo, tarjeta, transferencia</li>
-              <li>✓ <b>-10% en efectivo</b> al pagar en recepción</li>
+             
               <li>✓ <b>Disponibilidad</b> confirmada en minutos</li>
               <li>✓ <b>7 min de la Embajada</b> a pie</li>
               <li>✓ <b>Check-in 14:00</b> · Check-out 12:30</li>
@@ -94,7 +94,7 @@ export default function HotelCitaVisaUSA() {
           <h2 className="font-serif text-3xl font-bold">Reserva directa: más rápido, más barato, sin sorpresas</h2>
           <p className="mt-3 text-gray-600">
             Cuando reservas por <b>agencias online</b>, pagas comisiones que pueden sumar $20.000-$40.000 extra por noche.
-            En nuestra reserva directa, <b>no cobramos comisión</b>. Pagas lo que ves y si pagas en efectivo, tienes <b>10% de descuento</b>.
+            En nuestra reserva directa, <b>no cobramos comisión</b>. Pagas lo que ves y mejores tarifas en la reserva directa.
             Además, puedes cancelar gratis hasta 24 horas antes sin preguntas.
           </p>
           <p className="mt-3 text-gray-600">
@@ -138,7 +138,7 @@ export default function HotelCitaVisaUSA() {
           <div className="mt-4 grid md:grid-cols-3 gap-4">
             <Card className="p-4 text-center border-t-4 border-[#C9A86A]">
               <div className="font-semibold mt-2">Efectivo</div>
-              <div className="text-sm text-gray-500 mt-1">10% de descuento. Pago al llegar o por adelantado.</div>
+              <div className="text-sm text-gray-500 mt-1">Pago al llegar o por adelantado.</div>
             </Card>
             <Card className="p-4 text-center border-t-4 border-[#C9A86A]">
               <div className="font-semibold mt-2">Tarjeta</div>
@@ -154,7 +154,7 @@ export default function HotelCitaVisaUSA() {
         <section className="bg-white border rounded-2xl p-6">
           <h2 className="font-serif text-2xl font-bold">Lo que dicen quienes reservaron directamente</h2>
           <div className="mt-4 grid md:grid-cols-3 gap-4">
-            <Card className="p-4 bg-[#FFFBF5]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">&ldquo;Reservé por WhatsApp y todo fue rápido. Sin comisiones, sin sorpresas. Pagué en efectivo con descuento.&rdquo;</p><div className="text-xs text-gray-500 mt-2">Miguel · Neiva</div></Card>
+            <Card className="p-4 bg-[#FFFBF5]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">&ldquo;Reservé por WhatsApp y todo fue rápido. Sin comisiones, sin sorpresas. Todo fue rápido y sin sorpresas.&rdquo;</p><div className="text-xs text-gray-500 mt-2">Miguel · Neiva</div></Card>
             <Card className="p-4 bg-[#FFFBF5]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">&ldquo;Mi cita cambió de fecha y me dejaron cambiar la reserva sin costo. Muy flexibles y profesionales.&rdquo;</p><div className="text-xs text-gray-500 mt-2">Ana · Popayán</div></Card>
             <Card className="p-4 bg-[#FFFBF5]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">&ldquo;Cancelé 12 horas antes porque no pude ir. Me devolvieron el dinero sin preguntas. Excelente servicio.&rdquo;</p><div className="text-xs text-gray-500 mt-2">Diego · Santa Marta</div></Card>
           </div>
@@ -166,7 +166,7 @@ export default function HotelCitaVisaUSA() {
             {[
               { q: "¿Cómo reservo mi hotel para la cita de visa USA?", a: "Puedes reservar directamente por nuestro sitio web en /reservas, por WhatsApp al +573176760460 o por teléfono. No cobramos comisión por reserva directa." },
               { q: "¿Cuál es la política de cancelación?", a: "Cancelación gratuita hasta 24 horas antes del check-in. Solo avísanos por WhatsApp y procesamos el reembolso sin preguntas. Sin penalidades." },
-              { q: "¿Qué formas de pago aceptan?", a: "Aceptamos efectivo, tarjeta de crédito, débito y transferencia bancaria. En efectivo tienes 10% de descuento adicional." },
+              { q: "¿Qué formas de pago aceptan?", a: "Aceptamos efectivo, tarjeta de crédito, débito y transferencia bancaria. Aceptamos efectivo, tarjeta y transferencia." },
               { q: "¿Hay disponibilidad la noche antes de mi cita?", a: "Tenemos disponibilidad la mayoría de noches. Te recomendamos reservar con 1-2 semanas de anticipación para asegurar tu habitación. Por WhatsApp confirmamos disponibilidad en tiempo real." },
               { q: "¿Puedo modificar mi reserva si cambia la fecha de mi cita?", a: "Sí, puedes cambiar la fecha de tu reserva sin costo adicional siempre que avises con 24 horas de anticipación. Llámanos por WhatsApp y lo resolvemos." },
               { q: "¿Qué incluye mi reserva?", a: "Habitación privada con baño, desayuno de 6:00-9:00, guarda-equipaje gratis, WiFi, recepción 24h y cancelación gratuita 24h. Todo sin cargos ocultos." },
@@ -181,7 +181,7 @@ export default function HotelCitaVisaUSA() {
 
         <section className="text-center bg-[#000000] text-white rounded-[24px] p-8">
           <h2 className="font-serif text-3xl font-bold">Reserva sin comisión para tu cita de visa USA</h2>
-          <p className="text-white/80 mt-2">Cancelación 24h gratis. Pago en efectivo con -10%. A 7 min de la Embajada.</p>
+          <p className="text-white/80 mt-2">Cancelación 24h gratis. A 7 min de la Embajada.</p>
           <div className="mt-6 flex justify-center gap-3">
             <Link href="/reservas?roomType=doble"><Button variant="gold" size="lg">Reservar ahora</Button></Link>
             <a href={hotel.whatsappUrl("Hola, quiero reservar para mi cita de visa USA el...")} target="_blank"><Button size="lg" className="bg-[#25D366]">WhatsApp 317 6760460</Button></a>

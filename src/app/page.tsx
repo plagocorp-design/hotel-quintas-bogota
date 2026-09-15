@@ -28,7 +28,7 @@ export default async function Home(){
     { icon:"🛡️", title:"Seguridad 24h", desc:"Cámaras y personal" },
     { icon:"🛋️", title:"Zonas de esparcimiento", desc:"Sala, patio al aire libre" },
     { icon:"🚿", title:"Agua caliente", desc:"Ducha con buena presión" },
-    { icon:"💵", title:"Efectivo -10%", desc:"Descuento por pago en efectivo" },
+    
   ];
   return (
     <>
@@ -42,13 +42,13 @@ export default async function Home(){
           <div className="text-white">
             <Badge className="bg-[#C9A86A] text-white mb-4">★ 8.8 Fabuloso · 470+ reseñas · Ubicación 9.5</Badge>
             <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight">Tu casa en Bogotá,<br/>a minutos de todo</h1>
-            <p className="mt-4 text-white/90 text-lg">En Teusaquillo, a 15 min del Aeropuerto El Dorado, 7 min de Corferias y 7 min de la Embajada USA. desayuno de 6:00 a 9:00, tranquilidad para descansar y servicio atento. Pago en efectivo con -10%.</p>
+            <p className="mt-4 text-white/90 text-lg">En Teusaquillo, a 15 min del Aeropuerto El Dorado, 7 min de Corferias y 7 min de la Embajada USA. desayuno de 6:00 a 9:00, tranquilidad para descansar y servicio atento.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/reservas"><Button variant="gold" size="lg">Reservar ahora</Button></Link>
               <a href={hotel.whatsappUrl()} target="_blank"><Button variant="outline" size="lg" className="bg-white">WhatsApp 317 6760460</Button></a>
             </div>
             <div className="mt-6 flex gap-4 text-sm">
-              <span>✓ WiFi gratis</span><span>✓ Recepción 24h</span><span>✓ Desayuno 6:00-9:00</span><span>✓ Efectivo -10%</span>
+              <span>✓ WiFi gratis</span><span>✓ Recepción 24h</span><span>✓ Desayuno 6:00-9:00</span><span>✓ Cancelación 24h</span>
             </div>
           </div>
           <BookingWidget/>

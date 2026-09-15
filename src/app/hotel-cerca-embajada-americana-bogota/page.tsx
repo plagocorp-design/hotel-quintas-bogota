@@ -84,7 +84,7 @@ export default function EmbajadaPage() {
               <li>✓ <b>Impresión DS-160</b> en recepción</li>
               <li>✓ Recepción 24h (te despertamos)</li>
               <li>✓ Cancelación gratuita 24h</li>
-              <li>✓ Pago en efectivo con <b>-10%</b></li>
+             
             </ul>
           </Card>
         </div>

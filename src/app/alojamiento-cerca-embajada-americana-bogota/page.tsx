@@ -8,7 +8,7 @@ import { hotel } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Alojamiento Cerca Embajada Americana Bogotá | Desde $80.000",
-  description: "Alojamiento económico a 7 min de la Embajada Americana. Desde $80.000 con desayuno. Pago en efectivo con descuento. WiFi, guarda-equipaje, recepción 24h.",
+  description: "Alojamiento económico a 7 min de la Embajada Americana. Desde $80.000 con desayuno.. WiFi, guarda-equipaje, recepción 24h.",
   keywords: ["alojamiento cerca embajada americana bogota","alojamiento economico embajada americana","hotel barato embajada americana bogota","hospedaje economico cerca embajada","alojamiento desde 80000 embajada"],
   alternates: { canonical: "https://hotelquintasdebogota.com/alojamiento-cerca-embajada-americana-bogota" },
   openGraph: {
@@ -26,9 +26,9 @@ export default function AlojamientoEmbajadaPage() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
-      { "@type": "Question", name: "¿Cuánto cuesta una noche cerca de la Embajada Americana?", acceptedAnswer: { "@type": "Answer", text: "Nuestras habitaciones dobles empiezan desde $80.000 por noche. Incluye desayuno, WiFi y guarda-equipaje. Con pago en efectivo recibes 10% adicional de descuento." } },
-      { "@type": "Question", name: "¿Qué métodos de pago aceptan?", acceptedAnswer: { "@type": "Answer", text: "Aceptamos efectivo, tarjeta débito, tarjeta crédito (Visa, Mastercard, Amex), Nequi, Daviplata y transferencia bancaria. El descuento del 10% es solo para pago en efectivo." } },
-      { "@type": "Question", name: "¿Hay descuento por pago en efectivo?", acceptedAnswer: { "@type": "Answer", text: "Sí, si pagas en efectivo recibes un 10% de descuento sobre la tarifa publicada. Una habitación doble que cuesta $110.000 te sale en $99.000. Es nuestra mejor tarifa." } },
+      { "@type": "Question", name: "¿Cuánto cuesta una noche cerca de la Embajada Americana?", acceptedAnswer: { "@type": "Answer", text: "Nuestras habitaciones dobles empiezan desde $80.000 por noche. Incluye desayuno, WiFi y guarda-equipaje. Incluye desayuno, WiFi y guarda-equipaje." } },
+      { "@type": "Question", name: "¿Qué métodos de pago aceptan?", acceptedAnswer: { "@type": "Answer", text: "Aceptamos efectivo, tarjeta débito, tarjeta crédito (Visa, Mastercard, Amex), Nequi, Daviplata y transferencia bancaria. Aceptamos todas las formas de pago." } },
+      { "@type": "Question", name: "¿Hay descuento por pago en efectivo?", acceptedAnswer: { "@type": "Answer", text: "Nuestras habitaciones dobles empiezan desde $80.000 por noche. Incluye desayuno, WiFi y guarda-equipaje." } },
       { "@type": "Question", name: "¿Qué tipos de habitación tienen?", acceptedAnswer: { "@type": "Answer", text: "Tenemos habitaciones dobles (2 personas), matrimoniales (1 cama king) y familiares (hasta 4 personas). Todas con baño privado, agua caliente y WiFi. Las familiares tienen dos camas dobles." } },
       { "@type": "Question", name: "¿El precio incluye desayuno?", acceptedAnswer: { "@type": "Answer", text: "Sí, todas nuestras tarifas incluyen desayuno buffet de 6:00 a 9:00am con café, jugo, pan, huevos y fruta. No hay cargo adicional por el desayuno." } },
     ],
@@ -68,7 +68,7 @@ export default function AlojamientoEmbajadaPage() {
             <p className="mt-4 text-white/80">
               No necesitas gastar de más para dormir cerca de la <b>Embajada Americana</b>.
               Nuestro alojamiento en <b>Teusaquillo</b> empieza desde <b>$80.000 por noche</b> con desayuno incluido.
-              A 7 minutos caminando, WiFi gratis, guarda-equipaje y recepción 24h. Pago en efectivo y te damos 10% más de descuento.
+              A 7 minutos caminando, WiFi gratis, guarda-equipaje y recepción 24h.
             </p>
             <div className="mt-6 flex gap-3">
               <Link href="/reservas?roomType=doble"><Button variant="gold" size="lg">Ver tarifas desde $80.000</Button></Link>
@@ -82,7 +82,7 @@ export default function AlojamientoEmbajadaPage() {
               <div className="flex justify-between border-b pb-2"><span className="font-semibold">Doble superior</span><span className="text-[#C9A86A] font-bold">Desde $110.000</span></div>
               <div className="flex justify-between border-b pb-2"><span className="font-semibold">Matrimonial</span><span className="text-[#C9A86A] font-bold">Desde $120.000</span></div>
               <div className="flex justify-between"><span className="font-semibold">Familiar (4 pers.)</span><span className="text-[#C9A86A] font-bold">Desde $150.000</span></div>
-              <div className="bg-[#F5F1E8] p-3 rounded-xl mt-2"><b>Pago en efectivo: -10%</b> sobre cualquier tarifa</div>
+             
             </div>
           </Card>
         </div>
@@ -109,7 +109,7 @@ export default function AlojamientoEmbajadaPage() {
           <Card className="p-6">
             <h3 className="font-semibold text-lg">Métodos de pago disponibles</h3>
             <ul className="mt-3 text-sm space-y-2 list-disc pl-5">
-              <li><b>Efectivo:</b> 10% de descuento automático</li>
+              <li><b>Pago:</b> Efectivo, tarjeta, transferencia</li>
               <li><b>Tarjeta débito:</b> Visa, Mastercard</li>
               <li><b>Tarjeta crédito:</b> Visa, Mastercard, Amex</li>
               <li><b>Nequi:</b> Pago instantáneo</li>
@@ -117,7 +117,7 @@ export default function AlojamientoEmbajadaPage() {
               <li><b>Transferencia:</b> Bancolombia, Davivienda, Banco Bogotá</li>
             </ul>
             <div className="mt-3 bg-[#F5F1E8] p-3 rounded-xl text-sm">
-              <b>Tip:</b> Si pagas en efectivo, una doble de $110.000 te cuesta $99.000. Es nuestra mejor oferta.
+              <b>Tip:</b> Nuestras mejores tarifas están en la reserva directa.
             </div>
           </Card>
           <Card className="p-6 bg-[#F5F1E8] border-[#C9A86A]/30">
@@ -158,7 +158,7 @@ export default function AlojamientoEmbajadaPage() {
           <h2 className="font-serif text-2xl font-bold">Lo que dicen nuestros huéspedes</h2>
           <div className="mt-4 grid md:grid-cols-3 gap-4">
             <Card className="p-4 bg-[#FFFBF5]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">&ldquo;Por $80.000 con desayuno y a 7 min de la Embajada, no se puede pedir más. Limpio y cómodo.&rdquo;</p><div className="text-xs text-gray-500 mt-2">Pedro · Ibagué</div></Card>
-            <Card className="p-4 bg-[#FFFBF5]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">&ldquo;Pagué en efectivo y me hicieron el descuento. Excelente trato y la habitación estaba impecable.&rdquo;</p><div className="text-xs text-gray-500 mt-2">Sandra · Neiva</div></Card>
+            <Card className="p-4 bg-[#FFFBF5]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">&ldquo;Excelente trato y la habitación estaba impecable.&rdquo;</p><div className="text-xs text-gray-500 mt-2">Sandra · Neiva</div></Card>
             <Card className="p-4 bg-[#FFFBF5]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">&ldquo;Venía con poco presupuesto y encontré este lugar. WiFi funciona perfecto para trabajar.&rdquo;</p><div className="text-xs text-gray-500 mt-2">Miguel · Pasto</div></Card>
           </div>
         </section>
@@ -168,9 +168,9 @@ export default function AlojamientoEmbajadaPage() {
           <h2 className="font-serif text-2xl font-bold">Preguntas frecuentes sobre tarifas y pagos</h2>
           <div className="mt-4 space-y-4">
             {[
-              { q: "¿Cuánto cuesta una noche cerca de la Embajada Americana?", a: "Nuestras habitaciones dobles empiezan desde $80.000 por noche. Incluye desayuno, WiFi y guarda-equipaje. Con pago en efectivo recibes 10% adicional de descuento." },
-              { q: "¿Qué métodos de pago aceptan?", a: "Aceptamos efectivo, tarjeta débito, tarjeta crédito (Visa, Mastercard, Amex), Nequi, Daviplata y transferencia bancaria. El descuento del 10% es solo para pago en efectivo." },
-              { q: "¿Hay descuento por pago en efectivo?", a: "Sí, si pagas en efectivo recibes un 10% de descuento sobre la tarifa publicada. Una habitación doble que cuesta $110.000 te sale en $99.000. Es nuestra mejor tarifa." },
+              { q: "¿Cuánto cuesta una noche cerca de la Embajada Americana?", a: "Nuestras habitaciones dobles empiezan desde $80.000 por noche. Incluye desayuno, WiFi y guarda-equipaje. Incluye desayuno, WiFi y guarda-equipaje." },
+              { q: "¿Qué métodos de pago aceptan?", a: "Aceptamos efectivo, tarjeta débito, tarjeta crédito (Visa, Mastercard, Amex), Nequi, Daviplata y transferencia bancaria. Aceptamos todas las formas de pago." },
+              { q: "¿Hay descuento por pago en efectivo?", a: "Nuestras habitaciones dobles empiezan desde $80.000 por noche. Incluye desayuno, WiFi y guarda-equipaje." },
               { q: "¿Qué tipos de habitación tienen?", a: "Tenemos habitaciones dobles (2 personas), matrimoniales (1 cama king) y familiares (hasta 4 personas). Todas con baño privado, agua caliente y WiFi. Las familiares tienen dos camas dobles." },
               { q: "¿El precio incluye desayuno?", a: "Sí, todas nuestras tarifas incluyen desayuno buffet de 6:00 a 9:00am con café, jugo, pan, huevos y fruta. No hay cargo adicional por el desayuno." },
             ].map((item, i) => (
@@ -185,7 +185,7 @@ export default function AlojamientoEmbajadaPage() {
         {/* CTA final */}
         <section className="text-center bg-[#000000] text-white rounded-[24px] p-8">
           <h2 className="font-serif text-3xl font-bold">Alojamiento desde $80.000 a 7 min de la Embajada</h2>
-          <p className="text-white/80 mt-2">Desayuno incluido. WiFi gratis. Pago en efectivo con 10% descuento.</p>
+          <p className="text-white/80 mt-2">Desayuno incluido. WiFi gratis.</p>
           <div className="mt-6 flex justify-center gap-3">
             <Link href="/reservas?roomType=doble"><Button variant="gold" size="lg">Reservar desde $80.000</Button></Link>
             <Link href="/habitaciones"><Button variant="outline" size="lg" className="bg-white text-[#000000]">Ver tipos de habitación</Button></Link>
