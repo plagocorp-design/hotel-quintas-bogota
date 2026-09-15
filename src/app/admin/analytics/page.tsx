@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
@@ -52,19 +53,30 @@ function StatCard({ icon, label, value, sub }: { icon: string; label: string; va
 }
 
 export default function AnalyticsPage() {
+  const router = useRouter()
   const [stats, setStats] = useState<Stats | null>(null)
   const [days, setDays] = useState(30)
   const [loading, setLoading] = useState(true)
+  const [authError, setAuthError] = useState(false)
 
   const load = async () => {
     setLoading(true)
     const r = await fetch(`/api/analytics/stats?days=${days}`)
+    if (r.status === 401) { setAuthError(true); setLoading(false); return }
     if (r.ok) setStats(await r.json())
     setLoading(false)
   }
 
   useEffect(() => { load() }, [days])
 
+  if (authError) return (
+    <div className="p-8 text-center">
+      <div className="text-4xl mb-4">🔒</div>
+      <div className="text-lg font-semibold mb-2">Sesión expirada</div>
+      <p className="text-gray-500 mb-4">Necesitas iniciar sesión para ver las estadísticas.</p>
+      <a href="/admin/login" className="inline-block bg-[#C9A86A] text-white px-6 py-3 rounded-xl font-semibold">Iniciar sesión</a>
+    </div>
+  )
   if (loading && !stats) return <div className="p-8 text-center text-gray-500">Cargando estadísticas...</div>
   if (!stats) return <div className="p-8 text-center text-red-500">Error cargando datos</div>
 
