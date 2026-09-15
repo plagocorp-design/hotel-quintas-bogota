@@ -3,107 +3,200 @@ import Header from "@/components/site/Header"
 import Footer from "@/components/site/Footer"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { formatCOP, hotel } from "@/lib/utils"
-import { useEffect, useState } from "react"
-import { useSearchParams } from "next/navigation"
+import { useState } from "react"
+import { buildBookingUrl } from "@/lib/whatsapp"
 
-export default function ReservasClient(){
-  const sp = useSearchParams()
-  const [types,setTypes]=useState<any[]>([])
-  const [form,setForm]=useState({
-    name:"",email:"",phone:"",
-    checkIn: sp.get("checkIn")||"",
-    checkOut: sp.get("checkOut")||"",
-    adults: sp.get("adults")||"2",
-    children:"0",
-    roomTypeSlug: sp.get("roomType")||"doble",
-    comments:""
+const ROOMS = [
+  { slug: "sencilla", name: "Sencilla", price: 80000, desc: "1 persona, baño privado" },
+  { slug: "doble", name: "Doble", price: 90000, desc: "2 personas, baño privado" },
+  { slug: "triple", name: "Triple", price: 140000, desc: "3 personas, baño privado" },
+  { slug: "cuadruple", name: "Cuádruple", price: 160000, desc: "4 personas, baño privado" },
+]
+
+function formatCOP(v: number) { return "$" + v.toLocaleString("es-CO") }
+
+function todayStr() {
+  const d = new Date(); d.setDate(d.getDate() + 1)
+  return d.toISOString().split("T")[0]
+}
+
+function formatDateShort(ds: string) {
+  if (!ds) return ""
+  const d = new Date(ds + "T12:00:00")
+  return d.toLocaleDateString("es-CO", { weekday: "short", day: "numeric", month: "short" })
+}
+
+export default function ReservasClient() {
+  const [step, setStep] = useState(0)
+  const [data, setData] = useState({
+    checkIn: "", checkOut: "",
+    adults: 2, children: 0,
+    roomType: "doble",
+    name: "", phone: "", notes: ""
   })
-  const [pricing,setPricing]=useState<any>(null)
-  const [done,setDone]=useState<any>(null)
-  const [error,setError]=useState("")
 
-  useEffect(()=>{
-    fetch("/api/room-types").then(r=>r.json()).then(setTypes)
-  },[])
+  const nights = data.checkIn && data.checkOut
+    ? Math.round((new Date(data.checkOut + "T12:00:00").getTime() - new Date(data.checkIn + "T12:00:00").getTime()) / 86400000)
+    : 0
+  const room = ROOMS.find(r => r.slug === data.roomType) || ROOMS[1]
+  const total = nights * room.price
 
-  useEffect(()=>{
-    if(form.checkIn && form.checkOut && form.roomTypeSlug){
-      const t=types.find(x=>x.slug===form.roomTypeSlug)
-      if(!t) return
-      fetch(`/api/availability?checkIn=${form.checkIn}&checkOut=${form.checkOut}&adults=${form.adults}`)
-        .then(r=>r.json()).then(data=>{
-          const found=data.find((d:any)=>d.roomType.slug===form.roomTypeSlug)
-          if(found) setPricing(found.pricing)
-        })
-    }
-  },[form.checkIn, form.checkOut, form.roomTypeSlug, form.adults, types])
-
-  const submit=async(e:React.FormEvent)=>{
-    e.preventDefault()
-    setError("")
-    const res=await fetch("/api/bookings",{method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({
-      name:form.name,email:form.email,phone:form.phone,
-      checkIn:form.checkIn,checkOut:form.checkOut,
-      adults: Number(form.adults), children: Number(form.children),
-      roomTypeSlug: form.roomTypeSlug, source:"WEB", notes: form.comments
-    })})
-    const data=await res.json()
-    if(!res.ok){ setError(data.error || "Error"); return }
-    setDone(data)
+  const sendWhatsApp = () => {
+    const url = buildBookingUrl(data)
+    window.open(url, "_blank")
   }
+
+  const next = () => setStep(s => s + 1)
+  const back = () => setStep(s => Math.max(0, s - 1))
+
+  const today = todayStr()
 
   return (
     <>
-      <Header/>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 grid md:grid-cols-2 gap-8">
-        <div>
-          <h1 className="font-serif text-3xl font-bold">Motor de reservas real</h1>
-          <p className="text-gray-600">Disponibilidad en tiempo real · Reserva crea ocupación inmediata</p>
-          {done ? (
-            <Card className="p-6 mt-6 bg-green-50 border-green-200">
-              <div className="font-bold text-green-800">¡Reserva creada! {done.reservation.code}</div>
-              <p className="text-sm mt-2">Habitación asignada: {done.room.number} · Total {formatCOP(done.pricing.total)} ({done.pricing.nights} noche(s))</p>
-              <p className="text-sm">Estado: PENDIENTE — te confirmaremos por WhatsApp.</p>
-              <a href={hotel.whatsappUrl(`Hola, acabo de reservar ${done.reservation.code} del ${form.checkIn} al ${form.checkOut}`)} target="_blank"><Button variant="gold" className="mt-3">Confirmar por WhatsApp</Button></a>
-              <Button variant="outline" className="mt-2 ml-2" onClick={()=>setDone(null)}>Nueva reserva</Button>
-            </Card>
-          ):(
-            <form onSubmit={submit} className="mt-6 grid gap-3 bg-white p-6 rounded-2xl border">
-              <div className="grid md:grid-cols-2 gap-3">
-                <label className="text-sm">Nombre<input required value={form.name} onChange={e=>setForm({...form,name:e.target.value})} className="mt-1 w-full border rounded-xl px-3 py-2"/></label>
-                <label className="text-sm">Email<input type="email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} className="mt-1 w-full border rounded-xl px-3 py-2" placeholder="opcional"/></label>
-              </div>
-              <label className="text-sm">Teléfono / WhatsApp<input required value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} placeholder="+57 3xx..." className="mt-1 w-full border rounded-xl px-3 py-2"/></label>
-              <div className="grid grid-cols-2 gap-3">
-                <label className="text-sm">Llegada<input type="date" required value={form.checkIn} onChange={e=>setForm({...form,checkIn:e.target.value})} className="mt-1 w-full border rounded-xl px-3 py-2"/></label>
-                <label className="text-sm">Salida<input type="date" required value={form.checkOut} onChange={e=>setForm({...form,checkOut:e.target.value})} className="mt-1 w-full border rounded-xl px-3 py-2"/></label>
-              </div>
-              <div className="grid grid-cols-3 gap-3">
-                <label className="text-sm">Adultos<select value={form.adults} onChange={e=>setForm({...form,adults:e.target.value})} className="mt-1 w-full border rounded-xl px-3 py-2">{[1,2,3,4,5].map(n=><option key={n} value={n}>{n}</option>)}</select></label>
-                <label className="text-sm">Niños<select value={form.children} onChange={e=>setForm({...form,children:e.target.value})} className="mt-1 w-full border rounded-xl px-3 py-2">{[0,1,2].map(n=><option key={n} value={n}>{n}</option>)}</select></label>
-                <label className="text-sm">Habitación<select value={form.roomTypeSlug} onChange={e=>setForm({...form,roomTypeSlug:e.target.value})} className="mt-1 w-full border rounded-xl px-3 py-2">{types.map(r=><option key={r.slug} value={r.slug}>{r.name}</option>)}</select></label>
-              </div>
-              <label className="text-sm">Comentarios<textarea value={form.comments} onChange={e=>setForm({...form,comments:e.target.value})} className="mt-1 w-full border rounded-xl px-3 py-2" rows={2}/></label>
-              {pricing && <div className="bg-[#F5F1E8] p-3 rounded-xl text-sm">Total: <b>{formatCOP(pricing.total)}</b> · {pricing.nights} noche(s) · {formatCOP(pricing.unit)}/noche {pricing.multiplier>1 && `×${pricing.multiplier} temporada`}</div>}
-              {error && <div className="bg-red-50 text-red-700 p-2 rounded-xl text-sm">{error}</div>}
-              <Button type="submit" variant="gold" size="lg" className="w-full">Confirmar reserva real</Button>
-            </form>
+      <Header />
+      <div className="min-h-[60vh] flex items-center justify-center bg-[#F5F1E8] px-4 py-10">
+        <Card className="w-full max-w-lg p-6 sm:p-8">
+
+          {/* STEP 0: Llegada */}
+          {step === 0 && (
+            <div className="text-center">
+              <div className="text-4xl mb-3">📅</div>
+              <h2 className="font-serif text-2xl font-bold">¿Cuándo llegas?</h2>
+              <p className="text-gray-500 mt-1">Selecciona tu fecha de llegada</p>
+              <input
+                type="date" min={today} value={data.checkIn}
+                onChange={e => setData({ ...data, checkIn: e.target.value })}
+                className="mt-6 w-full border-2 border-[#C9A86A] rounded-xl px-4 py-3 text-lg text-center font-semibold focus:outline-none focus:ring-2 focus:ring-[#C9A86A]"
+              />
+              <Button variant="gold" size="lg" className="w-full mt-6" disabled={!data.checkIn} onClick={next}>
+                Siguiente
+              </Button>
+            </div>
           )}
-        </div>
-        <div className="space-y-4">
-          <Card className="p-6">
-            <div className="font-semibold">Flujo punta a punta</div>
-            <ul className="text-sm mt-2 space-y-1 list-disc pl-5">
-              <li>Verifica disponibilidad transaccional (evita overbooking)</li>
-              <li>Asigna habitación real y crea reserva en DB</li>
-              <li>Actualiza calendario y dashboard al instante</li>
-              <li>WhatsApp confirmación opcional</li>
-            </ul>
-          </Card>
-        </div>
+
+          {/* STEP 1: Salida */}
+          {step === 1 && (
+            <div className="text-center">
+              <button onClick={back} className="text-sm text-gray-400 mb-4">← Volver</button>
+              <div className="text-4xl mb-3">🛏️</div>
+              <h2 className="font-serif text-2xl font-bold">¿Cuándo sales?</h2>
+              <p className="text-gray-500 mt-1">Llegada: <b>{formatDateShort(data.checkIn)}</b></p>
+              <input
+                type="date" min={data.checkIn || today} value={data.checkOut}
+                onChange={e => setData({ ...data, checkOut: e.target.value })}
+                className="mt-6 w-full border-2 border-[#C9A86A] rounded-xl px-4 py-3 text-lg text-center font-semibold focus:outline-none focus:ring-2 focus:ring-[#C9A86A]"
+              />
+              <Button variant="gold" size="lg" className="w-full mt-6" disabled={!data.checkOut} onClick={next}>
+                Siguiente
+              </Button>
+            </div>
+          )}
+
+          {/* STEP 2: Personas */}
+          {step === 2 && (
+            <div className="text-center">
+              <button onClick={back} className="text-sm text-gray-400 mb-4">← Volver</button>
+              <div className="text-4xl mb-3">👥</div>
+              <h2 className="font-serif text-2xl font-bold">¿Cuántos son?</h2>
+              <p className="text-gray-500 mt-1">{formatDateShort(data.checkIn)} → {formatDateShort(data.checkOut)} · {nights} noche{nights !== 1 ? "s" : ""}</p>
+
+              <div className="mt-6 space-y-4">
+                <div className="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3">
+                  <span className="font-semibold">Adultos</span>
+                  <div className="flex items-center gap-3">
+                    <button onClick={() => setData({ ...data, adults: Math.max(1, data.adults - 1) })} className="w-8 h-8 rounded-full bg-gray-200 font-bold">−</button>
+                    <span className="font-bold text-lg w-6 text-center">{data.adults}</span>
+                    <button onClick={() => setData({ ...data, adults: Math.min(5, data.adults + 1) })} className="w-8 h-8 rounded-full bg-gray-200 font-bold">+</button>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3">
+                  <span className="font-semibold">Niños</span>
+                  <div className="flex items-center gap-3">
+                    <button onClick={() => setData({ ...data, children: Math.max(0, data.children - 1) })} className="w-8 h-8 rounded-full bg-gray-200 font-bold">−</button>
+                    <span className="font-bold text-lg w-6 text-center">{data.children}</span>
+                    <button onClick={() => setData({ ...data, children: Math.min(3, data.children + 1) })} className="w-8 h-8 rounded-full bg-gray-200 font-bold">+</button>
+                  </div>
+                </div>
+              </div>
+              <Button variant="gold" size="lg" className="w-full mt-6" onClick={next}>
+                Siguiente
+              </Button>
+            </div>
+          )}
+
+          {/* STEP 3: Tipo de habitación */}
+          {step === 3 && (
+            <div>
+              <button onClick={back} className="text-sm text-gray-400 mb-4">← Volver</button>
+              <div className="text-center mb-4">
+                <div className="text-4xl mb-3">🏨</div>
+                <h2 className="font-serif text-2xl font-bold">¿Qué habitación?</h2>
+              </div>
+              <div className="space-y-3">
+                {ROOMS.map(r => (
+                  <button key={r.slug} onClick={() => setData({ ...data, roomType: r.slug })}
+                    className={`w-full text-left p-4 rounded-xl border-2 transition-all ${data.roomType === r.slug ? "border-[#C9A86A] bg-[#F5F1E8]" : "border-gray-200 hover:border-gray-300"}`}>
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <div className="font-semibold">{r.name}</div>
+                        <div className="text-sm text-gray-500">{r.desc}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-bold text-[#C9A86A]">{formatCOP(r.price)}</div>
+                        <div className="text-xs text-gray-400">/noche</div>
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+              <Button variant="gold" size="lg" className="w-full mt-6" onClick={next}>
+                Siguiente
+              </Button>
+            </div>
+          )}
+
+          {/* STEP 4: Datos + confirmar */}
+          {step === 4 && (
+            <div>
+              <button onClick={back} className="text-sm text-gray-400 mb-4">← Volver</button>
+              <div className="text-center mb-4">
+                <div className="text-4xl mb-3">✅</div>
+                <h2 className="font-serif text-2xl font-bold">¿Listo para reservar?</h2>
+              </div>
+
+              <div className="bg-[#F5F1E8] rounded-xl p-4 mb-4 text-sm space-y-1">
+                <div>📅 {formatDateShort(data.checkIn)} → {formatDateShort(data.checkOut)} ({nights} noche{nights !== 1 ? "s" : ""})</div>
+                <div>👥 {data.adults} adulto(s){data.children > 0 ? ` + ${data.children} niño(s)` : ""}</div>
+                <div>🛏️ Habitación {room.name}</div>
+                <div className="font-bold text-lg mt-2">💰 {formatCOP(total)}</div>
+                <div className="text-xs text-gray-500">Pago en efectivo con -10% descuento</div>
+              </div>
+
+              <div className="space-y-3">
+                <input placeholder="Tu nombre (opcional)" value={data.name}
+                  onChange={e => setData({ ...data, name: e.target.value })}
+                  className="w-full border rounded-xl px-4 py-3" />
+                <input placeholder="Tu WhatsApp (opcional, para confirmación)" value={data.phone}
+                  onChange={e => setData({ ...data, phone: e.target.value })}
+                  className="w-full border rounded-xl px-4 py-3" />
+                <textarea placeholder="Algún pedido especial..." value={data.notes}
+                  onChange={e => setData({ ...data, notes: e.target.value })}
+                  className="w-full border rounded-xl px-4 py-3" rows={2} />
+              </div>
+
+              <Button variant="gold" size="lg" className="w-full mt-6" onClick={sendWhatsApp}>
+                <span className="flex items-center justify-center gap-2">
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  Reservar por WhatsApp
+                </span>
+              </Button>
+              <p className="text-xs text-gray-400 text-center mt-3">Se abre WhatsApp con tu solicitud · Confirmación inmediata</p>
+            </div>
+          )}
+
+        </Card>
       </div>
-      <Footer/>
+      <Footer />
     </>
   )
 }
