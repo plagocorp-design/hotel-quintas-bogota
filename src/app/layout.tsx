@@ -6,7 +6,7 @@ import Script from "next/script";
 const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const playfair = Playfair_Display({ variable: "--font-playfair", subsets: ["latin"] });
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX";
+const GTM_ID = "GTM-PT6RLRD5";
 
 export const metadata: Metadata = {
   title: "Hotel Quintas de Bogotá | Teusaquillo - 8.8 Fabuloso",
@@ -49,19 +49,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${geist.variable} ${playfair.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-tag-manager" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}', {
-              page_path: window.location.pathname,
-            });
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','${GTM_ID}');
           `}
         </Script>
       </head>
-      <body className="min-h-full flex flex-col bg-[#FFFFFF]" suppressHydrationWarning>{children}
+      <body className="min-h-full flex flex-col bg-[#FFFFFF]" suppressHydrationWarning>
+      <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style={{display:'none',visibility:'hidden'}} /></noscript>
+      {children}
       <script dangerouslySetInnerHTML={{__html: `
         (function(){
           function getSid(){var s=sessionStorage.getItem('hq_sid');if(!s){s=(crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2)+Date.now().toString(36));sessionStorage.setItem('hq_sid',s)}return s}
