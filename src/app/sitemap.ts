@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
+import { cities, variants } from "@/data/cities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://hotelquintasdebogota.com";
   const now = new Date();
-  const pages = [
+
+  // Páginas principales
+  const mainPages = [
     "",
     "/habitaciones",
     "/ubicacion",
@@ -38,10 +41,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/hotel-para-familias-bogota",
     "/blog/guia-teusaquillo-hotel",
   ];
-  return pages.map((p) => ({
+
+  const mainSitemap = mainPages.map((p) => ({
     url: `${base}${p}`,
     lastModified: now,
-    changeFrequency: p === "" ? "daily" : "weekly",
+    changeFrequency: p === "" ? "daily" : "weekly" as const,
     priority: p === "" ? 1 : p.startsWith("/hotel-cerca") ? 0.9 : 0.7,
   }));
+
+  // Páginas de ciudades
+  const citySitemap = cities.map((c) => ({
+    url: `${base}/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  // Páginas de variantes por ciudad
+  const variantSitemap: MetadataRoute.Sitemap = [];
+  for (const c of cities) {
+    for (const v of variants) {
+      variantSitemap.push({
+        url: `${base}/${c.slug}/${v.slug}`,
+        lastModified: now,
+        changeFrequency: "weekly" as const,
+        priority: 0.7,
+      });
+    }
+  }
+
+  return [...mainSitemap, ...citySitemap, ...variantSitemap];
 }
