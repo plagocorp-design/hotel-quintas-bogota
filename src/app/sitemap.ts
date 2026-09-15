@@ -45,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const mainSitemap: MetadataRoute.Sitemap = mainPages.map((p) => ({
     url: `${base}${p}`,
     lastModified: now,
-    changeFrequency: (p === "" ? "daily" : "weekly") as MetadataRoute.Sitemap[number]["changeFrequency"],
+    changeFrequency: (p === "" ? "daily" : "weekly") as "daily" | "weekly",
     priority: p === "" ? 1 : p.startsWith("/hotel-cerca") ? 0.9 : 0.7,
   }));
 
@@ -53,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const citySitemap: MetadataRoute.Sitemap = cities.map((c) => ({
     url: `${base}/${c.slug}`,
     lastModified: now,
-    changeFrequency: "weekly" as MetadataRoute.Sitemap[number]["changeFrequency"],
+    changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
