@@ -19,11 +19,11 @@ export default function Ubicacion(){
             </div>
             <div className="bg-white p-4 rounded-2xl border">
               <div className="font-semibold">Desde Corferias</div>
-              <div className="text-sm text-gray-600">15 min a pie · 5 min en carro</div>
+              <div className="text-sm text-gray-600">7 min a pie · 3 min en carro</div>
             </div>
             <div className="bg-white p-4 rounded-2xl border">
               <div className="font-semibold">Desde Embajada USA</div>
-              <div className="text-sm text-gray-600">A pocas cuadras, ideal para citas de visa</div>
+              <div className="text-sm text-gray-600">7 min a pie, ideal para citas de visa</div>
             </div>
             <a href={hotel.mapsUrl} target="_blank" className="inline-block bg-[#1A2B4A] text-white px-6 py-3 rounded-full">Abrir en Google Maps</a>
           </div>

@@ -14,11 +14,14 @@ export default function Servicios(){
         <div className="mt-8 bg-[#F5F1E8] p-6 rounded-2xl">
           <div className="font-semibold">Normas de la casa</div>
           <ul className="text-sm mt-2 space-y-1 list-disc pl-5">
-            <li>Check-in desde 14:00 hasta 00:00</li>
-            <li>Check-out flexible 24h (consultar)</li>
+            <li>Check-in desde 14:00</li>
+            <li>Check-out a las 14:30</li>
             <li>No se admiten mascotas · No fumar</li>
-            <li>Cancelación según tarifa elegida</li>
-            <li>Métodos de pago: Efectivo, Visa, Master, Amex, Transferencia</li>
+            <li>Cancelación gratuita 24h</li>
+            <li>Desayuno servido a las 9:00</li>
+            <li>Parqueadero desde $10.000 (consultar según vehículo)</li>
+            <li>Métodos de pago: Efectivo (-10%), transferencia Nequi/Daviplata, Visa, Master</li>
+            <li>Guarda-equipaje y plancha sin costo</li>
           </ul>
         </div>
       </div>

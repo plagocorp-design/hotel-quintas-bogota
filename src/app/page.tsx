@@ -22,12 +22,13 @@ export default async function Home(){
   const services = [
     { icon:"📶", title:"WiFi gratis", desc:"Fibra en todo el hotel" },
     { icon:"🛎️", title:"Recepción 24h", desc:"Equipo siempre atento" },
-    { icon:"🍳", title:"Desayuno excepcional", desc:"Completo, casero y delicioso" },
+    { icon:"🍳", title:"Desayuno a las 9:00", desc:"Casero y delicioso" },
     { icon:"🧹", title:"Limpieza diaria", desc:"Habitaciones impecables" },
     { icon:"👨‍👩‍👧‍👦", title:"Habitaciones familiares", desc:"Hasta 5 personas, interconectadas" },
     { icon:"🛡️", title:"Seguridad 24h", desc:"Cámaras y personal" },
     { icon:"🛋️", title:"Zonas de esparcimiento", desc:"Sala, patio al aire libre" },
     { icon:"🚿", title:"Agua caliente", desc:"Ducha con buena presión" },
+    { icon:"💵", title:"Efectivo -10%", desc:"Descuento por pago en efectivo" },
   ];
   return (
     <>
@@ -39,15 +40,15 @@ export default async function Home(){
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 md:py-20 grid md:grid-cols-2 gap-8 items-center">
           <div className="text-white">
-            <Badge className="bg-[#C9A86A] text-white mb-4">★ 8.8 Fabuloso · 472 reseñas · Ubicación 9.5</Badge>
+            <Badge className="bg-[#C9A86A] text-white mb-4">★ 8.8 Fabuloso · 470+ reseñas · Ubicación 9.5</Badge>
             <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight">Tu casa en Bogotá,<br/>a minutos de todo</h1>
-            <p className="mt-4 text-white/90 text-lg">En Teusaquillo, a 10 min del Aeropuerto El Dorado y a pasos de Corferias y Embajada USA. Desayuno delicioso, tranquilidad para descansar y servicio atento.</p>
+            <p className="mt-4 text-white/90 text-lg">En Teusaquillo, a 15 min del Aeropuerto El Dorado, 7 min de Corferias y 7 min de la Embajada USA. Desayuno a las 9:00, tranquilidad para descansar y servicio atento. Pago en efectivo con -10%.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/reservas"><Button variant="gold" size="lg">Reservar ahora</Button></Link>
               <a href={hotel.whatsappUrl()} target="_blank"><Button variant="outline" size="lg" className="bg-white">WhatsApp 317 6760460</Button></a>
             </div>
             <div className="mt-6 flex gap-4 text-sm">
-              <span>✓ WiFi gratis</span><span>✓ Recepción 24h</span><span>✓ Desayuno excepcional</span>
+              <span>✓ WiFi gratis</span><span>✓ Recepción 24h</span><span>✓ Desayuno 9:00</span><span>✓ Efectivo -10%</span>
             </div>
           </div>
           <BookingWidget/>
@@ -93,8 +94,8 @@ export default async function Home(){
           <div className="mt-8 grid md:grid-cols-4 gap-4">
             {[
               {t:"Aeropuerto El Dorado", d:"8 km · 15 min en carro", icon:"✈️"},
-              {t:"Corferias", d:"15 min a pie", icon:"🏢"},
-              {t:"Embajada USA", d:"A pocas cuadras", icon:"🇺🇸"},
+              {t:"Corferias", d:"7 min a pie", icon:"🏢"},
+              {t:"Embajada USA", d:"7 min a pie", icon:"🇺🇸"},
               {t:"Parque Simón Bolívar", d:"5 km · pulmón de la ciudad", icon:"🌳"},
             ].map(c=>(
               <Card key={c.t} className="text-center p-6">

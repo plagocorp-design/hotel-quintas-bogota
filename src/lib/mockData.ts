@@ -20,12 +20,13 @@ export const testimonials = [
 export const services = [
   { icon:"📶", title:"WiFi gratis", desc:"Fibra en todo el hotel" },
   { icon:"🛎️", title:"Recepción 24h", desc:"Equipo siempre atento" },
-  { icon:"🍳", title:"Desayuno excepcional", desc:"Completo, casero y delicioso" },
+  { icon:"🍳", title:"Desayuno a las 9:00", desc:"Casero y delicioso" },
   { icon:"🧹", title:"Limpieza diaria", desc:"Habitaciones impecables" },
   { icon:"👨‍👩‍👧‍👦", title:"Habitaciones familiares", desc:"Hasta 5 personas, interconectadas" },
   { icon:"🛡️", title:"Seguridad 24h", desc:"Cámaras y personal" },
   { icon:"🛋️", title:"Zonas de esparcimiento", desc:"Sala, patio al aire libre" },
   { icon:"🚿", title:"Agua caliente", desc:"Ducha con buena presión" },
+  { icon:"💵", title:"Efectivo -10%", desc:"Descuento por pago en efectivo" },
 ];
 
 export const mockReservations = [

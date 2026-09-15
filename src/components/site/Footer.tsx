@@ -25,9 +25,9 @@ export default function Footer(){
           <div className="font-semibold mb-3">Reservas</div>
           <ul className="space-y-2 text-sm text-white/70">
             <li><Link href="/reservas">Motor de reservas</Link></li>
-            <li>Check-in 14:00 · Check-out flexible</li>
-            <li>Cancelación gratuita 48h</li>
-            <li>Puntuación 8.8 Fabuloso (472 reseñas)</li>
+            <li>Check-in 14:00 · Check-out 14:30</li>
+            <li>Cancelación gratuita 24h</li>
+            <li>Puntuación 8.8 Fabuloso (470+ reseñas)</li>
           </ul>
         </div>
         <div>

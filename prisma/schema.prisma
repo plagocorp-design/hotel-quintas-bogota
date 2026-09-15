@@ -30,8 +30,8 @@ model HotelSettings {
   phone              String   @default("+57 317 6760460")
   email              String   @default("hotelquintasdebogota@gmail.com")
   checkInTime        String   @default("14:00")
-  checkOutTime       String   @default("12:00")
-  cancellationPolicy String   @default("Cancelación gratuita 48h antes.")
+  checkOutTime       String   @default("14:30")
+  cancellationPolicy String   @default("Cancelación gratuita 24h antes.")
   bookingSyncEnabled Boolean  @default(false)
   whatsappEnabled    Boolean  @default(false)
   bookingApiKey      String?
