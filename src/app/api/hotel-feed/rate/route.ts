@@ -4,29 +4,25 @@ import { prisma } from "@/lib/prisma";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const settings = await prisma.hotelSettings.findFirst();
-  const prices = {
-    sencilla: settings?.priceSencilla ?? 80000,
-    doble: settings?.priceDoble ?? 90000,
-    triple: settings?.priceTriple ?? 140000,
-    cuadruple: settings?.priceCuadruple ?? 160000,
-  };
+  const roomTypes = await prisma.roomType.findMany({
+    orderBy: { basePrice: "asc" },
+  });
 
   const today = new Date().toISOString().split("T")[0];
 
-  const rooms = [
-    { id: "SEN", name: "Sencilla", desc: "Habitación sencilla con baño privado, WiFi y desayuno incluido", cap: 1, price: prices.sencilla, min: 1 },
-    { id: "DOB", name: "Doble", desc: "Habitación doble con baño privado, WiFi y desayuno incluido", cap: 2, price: prices.doble, min: 1 },
-    { id: "TRI", name: "Triple", desc: "Habitación triple con baño privado, WiFi y desayuno incluido", cap: 3, price: prices.triple, min: 2 },
-    { id: "CUA", name: "Cuádruple", desc: "Habitación cuádruple con baño privado, WiFi y desayuno incluido", cap: 4, price: prices.cuadruple, min: 3 },
-  ];
+  const mapping: Record<string, { id: string; desc: string; min: number }> = {
+    sencilla: { id: "SEN", desc: "Habitación sencilla con baño privado, WiFi y desayuno incluido", min: 1 },
+    doble: { id: "DOB", desc: "Habitación doble con baño privado, WiFi y desayuno incluido", min: 1 },
+    triple: { id: "TRI", desc: "Habitación triple con baño privado, WiFi y desayuno incluido", min: 2 },
+    cuadruple: { id: "CUA", desc: "Habitación cuádruple con baño privado, WiFi y desayuno incluido", min: 3 },
+  };
+
+  const rows = roomTypes.map(rt => {
+    const m = mapping[rt.slug] || { id: rt.slug.toUpperCase().slice(0, 3), desc: rt.description, min: 1 };
+    return `HQBOG001,${m.id},${rt.name},"${m.desc}",${rt.capacity},${today},COP,${rt.basePrice},"Cancelación gratuita hasta 24 horas antes",${rt.capacity},${m.min}`;
+  });
 
   const header = "hotel_id,room_id,room_name,room_description,room_capacity,rate_date,currency,price_per_night,cancellation_policy,max_occupancy,min_occupancy";
-
-  const rows = rooms.map(r =>
-    `HQBOG001,${r.id},${r.name},"${r.desc}",${r.cap},${today},COP,${r.price},"Cancelación gratuita hasta 24 horas antes",${r.cap},${r.min}`
-  );
-
   const csv = [header, ...rows].join("\n");
 
   return new NextResponse(csv, {
