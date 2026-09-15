@@ -24,7 +24,7 @@ export default function BookingWidget(){
 
   return (
     <div className="bg-white rounded-[24px] shadow-xl border border-[#F0E6D2] p-6">
-      <div className="font-serif text-xl font-bold text-[#1A2B4A]">Consulta disponibilidad real</div>
+      <div className="font-serif text-xl font-bold text-[#000000]">Consulta disponibilidad real</div>
       <p className="text-sm text-gray-500">Datos en tiempo real desde la base de datos</p>
       <form onSubmit={search} className="mt-4 grid gap-3">
         <div className="grid grid-cols-2 gap-3">
@@ -45,7 +45,7 @@ export default function BookingWidget(){
               <span className={`text-xs px-2 py-1 rounded-full ${r.isAvailable?"bg-green-600 text-white":"bg-red-600 text-white"}`}>{r.isAvailable?"Disponible":"Ocupado"}</span>
             </div>
           ))}
-          <Link href={`/reservas?checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}`} className="block text-center text-sm bg-[#1A2B4A] text-white py-2 rounded-full">Ir a reservar →</Link>
+          <Link href={`/reservas?checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}`} className="block text-center text-sm bg-[#000000] text-white py-2 rounded-full">Ir a reservar →</Link>
         </div>
       )}
       <div className="mt-4 text-xs text-muted-foreground">Igualamos precio Booking · Confirmación por WhatsApp</div>

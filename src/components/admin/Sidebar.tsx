@@ -58,7 +58,7 @@ export default function Sidebar(){
               onClick={()=>setMobileOpen(false)}
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors",
-                active ? "bg-white text-[#1A2B4A] shadow-sm" : "text-white/80 hover:bg-white/10 hover:text-white",
+                active ? "bg-white text-[#000000] shadow-sm" : "text-white/80 hover:bg-white/10 hover:text-white",
                 isCollapsed && "justify-center px-2"
               )}
               title={isCollapsed ? i.label : undefined}
@@ -88,7 +88,7 @@ export default function Sidebar(){
       {/* Mobile top bar trigger */}
       <button
         onClick={()=>setMobileOpen(true)}
-        className="md:hidden fixed top-3 left-3 z-40 h-9 w-9 rounded-xl bg-[#1A2B4A] text-white grid place-items-center shadow-lg"
+        className="md:hidden fixed top-3 left-3 z-40 h-9 w-9 rounded-xl bg-[#000000] text-white grid place-items-center shadow-lg"
         aria-label="Abrir menú"
       >
         ☰
@@ -98,7 +98,7 @@ export default function Sidebar(){
       {mobileOpen && (
         <div className="fixed inset-0 z-50 flex md:hidden">
           <div className="flex-1 bg-black/40" onClick={()=>setMobileOpen(false)} />
-          <aside className="w-64 shrink-0 bg-[#1A2B4A] text-white h-screen flex flex-col overflow-hidden">
+          <aside className="w-64 shrink-0 bg-[#000000] text-white h-screen flex flex-col overflow-hidden">
             <NavContent isCollapsed={false} />
           </aside>
         </div>
@@ -107,7 +107,7 @@ export default function Sidebar(){
       {/* Desktop sidebar - deslizador separado */}
       <aside
         className={cn(
-          "hidden md:flex flex-col shrink-0 bg-[#1A2B4A] text-white h-screen overflow-hidden transition-all duration-300 border-r border-white/5",
+          "hidden md:flex flex-col shrink-0 bg-[#000000] text-white h-screen overflow-hidden transition-all duration-300 border-r border-white/5",
           collapsed ? "w-[64px]" : "w-64"
         )}
       >

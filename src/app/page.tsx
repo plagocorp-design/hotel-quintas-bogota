@@ -36,7 +36,7 @@ export default async function Home(){
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img src="/booking-photos/01-609103266.jpg" alt="Hotel Quintas de Bogotá - Fachada Teusaquillo" className="h-full w-full object-cover"/>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2B4A]/80 via-[#1A2B4A]/40 to-transparent"/>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/80 via-[#000000]/40 to-transparent"/>
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 md:py-20 grid md:grid-cols-2 gap-8 items-center">
           <div className="text-white">
@@ -66,7 +66,7 @@ export default async function Home(){
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12">
         <div className="flex justify-between items-end">
           <div>
-            <h2 className="font-serif text-3xl font-bold text-[#1A2B4A]">Habitaciones para todos</h2>
+            <h2 className="font-serif text-3xl font-bold text-[#000000]">Habitaciones para todos</h2>
             <p className="text-gray-600">Desde {formatCOP(cheapest)} · Familiares hasta 5 personas · Bañera opcional</p>
           </div>
           <Link href="/habitaciones" className="text-sm text-[#C9A86A] font-semibold">Ver todas →</Link>
@@ -79,7 +79,7 @@ export default async function Home(){
                 <div className="font-semibold">{r.name}</div>
                 <div className="text-sm text-gray-500">{r.description.slice(0,60)} · hasta {r.capacity} personas</div>
                 <div className="mt-3 flex justify-between items-center">
-                  <span className="font-bold text-[#1A2B4A]">Desde {formatCOP(r.basePrice)}</span>
+                  <span className="font-bold text-[#000000]">Desde {formatCOP(r.basePrice)}</span>
                   <Link href={`/habitaciones#${r.slug}`}><Button size="sm">Ver detalle</Button></Link>
                 </div>
               </CardContent>
@@ -120,12 +120,12 @@ export default async function Home(){
         </div>
       </section>
 
-      <section className="bg-[#1A2B4A] text-white py-12">
+      <section className="bg-[#000000] text-white py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <h2 className="font-serif text-2xl font-bold">Lo que dicen nuestros huéspedes</h2>
           <div className="mt-6 grid md:grid-cols-3 gap-4">
             {testimonials.map(t=>(
-              <Card key={t.name} className="bg-white text-[#1A2B4A] p-6">
+              <Card key={t.name} className="bg-white text-[#000000] p-6">
                 <div className="text-[#C9A86A]">★★★★★</div>
                 <p className="mt-2 text-sm">“{t.text}”</p>
                 <div className="mt-3 text-sm font-semibold">{t.name} · {t.country}</div>

@@ -68,7 +68,7 @@ export default function AdminDashboard(){
         <Card className="p-4">
           <div className="font-semibold">Acciones rápidas</div>
           <div className="mt-3 grid grid-cols-2 gap-2">
-            <Link href="/admin/reservas" className="bg-[#1A2B4A] text-white text-center py-2 rounded-xl text-sm">Nueva reserva</Link>
+            <Link href="/admin/reservas" className="bg-[#000000] text-white text-center py-2 rounded-xl text-sm">Nueva reserva</Link>
             <Link href="/admin/calendario" className="bg-[#C9A86A] text-white text-center py-2 rounded-xl text-sm">Ver calendario</Link>
             <Link href="/admin/whatsapp" className="bg-[#25D366] text-white text-center py-2 rounded-xl text-sm">WhatsApp</Link>
             <a href="/api/booking-sync/webhook" target="_blank" className="border text-center py-2 rounded-xl text-sm">Logs Booking</a>

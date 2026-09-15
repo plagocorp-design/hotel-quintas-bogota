@@ -15,7 +15,7 @@ export default function AeropuertoPage() {
   return (
     <>
       <Header />
-      <section className="bg-[#1A2B4A] text-white py-12">
+      <section className="bg-[#000000] text-white py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-[#C9A86A] text-sm font-semibold tracking-widest">8 KM · 15-20 MIN · CALLE 26 DIRECTO</div>
           <h1 className="font-serif text-4xl font-bold mt-2">Hotel Cerca del Aeropuerto El Dorado: 15 Min en Teusaquillo Tranquilo</h1>

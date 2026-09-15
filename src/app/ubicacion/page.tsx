@@ -25,7 +25,7 @@ export default function Ubicacion(){
               <div className="font-semibold">Desde Embajada USA</div>
               <div className="text-sm text-gray-600">7 min a pie, ideal para citas de visa</div>
             </div>
-            <a href={hotel.mapsUrl} target="_blank" className="inline-block bg-[#1A2B4A] text-white px-6 py-3 rounded-full">Abrir en Google Maps</a>
+            <a href={hotel.mapsUrl} target="_blank" className="inline-block bg-[#000000] text-white px-6 py-3 rounded-full">Abrir en Google Maps</a>
           </div>
         </div>
       </div>

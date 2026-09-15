@@ -2,7 +2,7 @@ import Link from "next/link"
 import { hotel } from "@/lib/utils"
 export default function Footer(){
   return (
-    <footer className="bg-[#1A2B4A] text-white mt-16">
+    <footer className="bg-[#000000] text-white mt-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 grid md:grid-cols-4 gap-8">
         <div>
           <div className="font-serif text-xl font-bold">Hotel Quintas de Bogotá</div>

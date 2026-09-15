@@ -17,14 +17,14 @@ export default function Header(){
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-[#F0E6D2]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-xl bg-[#1A2B4A] text-white grid place-items-center font-serif font-bold">HQ</div>
+          <div className="h-9 w-9 rounded-xl bg-[#000000] text-white grid place-items-center font-serif font-bold">HQ</div>
           <div>
-            <div className="font-serif font-bold leading-none text-[#1A2B4A]">Hotel Quintas</div>
+            <div className="font-serif font-bold leading-none text-[#000000]">Hotel Quintas</div>
             <div className="text-xs tracking-widest text-[#C9A86A]">DE BOGOTÁ</div>
           </div>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          {nav.map(n=> <Link key={n.href} href={n.href} className="text-sm text-[#1A2B4A]/80 hover:text-[#1A2B4A]">{n.label}</Link>)}
+          {nav.map(n=> <Link key={n.href} href={n.href} className="text-sm text-[#000000]/80 hover:text-[#000000]">{n.label}</Link>)}
         </nav>
         <div className="hidden md:flex items-center gap-3">
           <a href={hotel.whatsappUrl("Hola, quisiera reservar")} target="_blank" className="text-sm font-medium text-[#25D366]">WhatsApp</a>

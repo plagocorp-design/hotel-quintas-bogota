@@ -11,7 +11,7 @@ export default function Post(){
         <h1 className="font-serif text-3xl font-bold">Hoteles Cerca Embajada USA Bogotá: Comparativa Real (400m vs 4km)</h1>
         <p className="mt-3 text-gray-600">No todos los "cerca" son iguales. Medimos a pie con Google Maps.</p>
         <table className="mt-6 w-full text-sm border rounded-xl overflow-hidden">
-          <thead className="bg-[#1A2B4A] text-white"><tr><th className="p-3 text-left">Hotel</th><th className="p-3">Distancia</th><th className="p-3">Taxi 7am</th><th className="p-3">Riesgo</th></tr></thead>
+          <thead className="bg-[#000000] text-white"><tr><th className="p-3 text-left">Hotel</th><th className="p-3">Distancia</th><th className="p-3">Taxi 7am</th><th className="p-3">Riesgo</th></tr></thead>
           <tbody>
             <tr className="bg-[#F5F1E8] font-semibold"><td className="p-3">Hotel Quintas Teusaquillo</td><td className="p-3 text-center">400m</td><td className="p-3 text-center">$0</td><td className="p-3 text-center">Bajo</td></tr>
             <tr><td className="p-3">Chapinero</td><td className="p-3 text-center">4.2km</td><td className="p-3 text-center">$18.000 + trancón</td><td className="p-3 text-center">Alto</td></tr>

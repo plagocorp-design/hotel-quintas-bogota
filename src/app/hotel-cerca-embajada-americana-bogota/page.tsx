@@ -44,7 +44,7 @@ export default function EmbajadaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* HERO */}
-      <section className="bg-[#1A2B4A] text-white py-12">
+      <section className="bg-[#000000] text-white py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 grid md:grid-cols-2 gap-8 items-center">
           <div>
             <div className="text-[#C9A86A] text-sm font-semibold tracking-widest">A 7 MIN A PIE · 9.5 EN UBICACIÓN · 8.8 FABULOSO</div>
@@ -52,10 +52,10 @@ export default function EmbajadaPage() {
             <p className="mt-4 text-white/80">En Cl. 22 Bis #44A-19, Teusaquillo. Duerme tranquilo, desayuna a las 9:00 y llega caminando a tu entrevista. Más de 470 huéspedes nos eligen por eso.</p>
             <div className="mt-6 flex gap-3">
               <Link href="/reservas?roomType=doble"><Button variant="gold" size="lg">Verifica tu fecha de cita</Button></Link>
-              <a href={hotel.whatsappUrl("Hola, tengo cita en la Embajada el... ¿tienen disponibilidad a 7 min?")} target="_blank"><Button variant="outline" size="lg" className="bg-white text-[#1A2B4A]">WhatsApp 317 6760460</Button></a>
+              <a href={hotel.whatsappUrl("Hola, tengo cita en la Embajada el... ¿tienen disponibilidad a 7 min?")} target="_blank"><Button variant="outline" size="lg" className="bg-white text-[#000000]">WhatsApp 317 6760460</Button></a>
             </div>
           </div>
-          <Card className="p-6 bg-white text-[#1A2B4A]">
+          <Card className="p-6 bg-white text-[#000000]">
             <div className="font-semibold">¿Por qué a 7 min te da tranquilidad?</div>
             <ul className="mt-3 space-y-2 text-sm list-disc pl-5">
               <li>Sales con tiempo para tu cita de 7am, sin trancones de la Calle 26</li>
@@ -97,13 +97,13 @@ export default function EmbajadaPage() {
         <section className="bg-white border rounded-2xl p-6">
           <h2 className="font-serif text-2xl font-bold">Testimonios de huéspedes con visa aprobada</h2>
           <div className="mt-4 grid md:grid-cols-3 gap-4">
-            <Card className="p-4 bg-[#FFFBF5]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">“Nos hizo sentir como en casa. Pude ir a pie a la Embajada sin estrés.”</p><div className="text-xs text-gray-500 mt-2">Salcedo · Colombia</div></Card>
-            <Card className="p-4 bg-[#FFFBF5]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">“La cercanía a la Embajada me hospedé porque teníamos cita para la visa, parque al frente, recomendable.”</p><div className="text-xs text-gray-500 mt-2">Lilibeth · Colombia</div></Card>
-            <Card className="p-4 bg-[#FFFBF5]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">“Desayuno delicioso, muy amable todo el personal. Excelente ubicación.”</p><div className="text-xs text-gray-500 mt-2">Estefanía · Colombia</div></Card>
+            <Card className="p-4 bg-[#FFFFFF]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">“Nos hizo sentir como en casa. Pude ir a pie a la Embajada sin estrés.”</p><div className="text-xs text-gray-500 mt-2">Salcedo · Colombia</div></Card>
+            <Card className="p-4 bg-[#FFFFFF]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">“La cercanía a la Embajada me hospedé porque teníamos cita para la visa, parque al frente, recomendable.”</p><div className="text-xs text-gray-500 mt-2">Lilibeth · Colombia</div></Card>
+            <Card className="p-4 bg-[#FFFFFF]"><div className="text-[#C9A86A]">★★★★★</div><p className="text-sm mt-2">“Desayuno delicioso, muy amable todo el personal. Excelente ubicación.”</p><div className="text-xs text-gray-500 mt-2">Estefanía · Colombia</div></Card>
           </div>
         </section>
 
-        <section className="text-center bg-[#1A2B4A] text-white rounded-[24px] p-8">
+        <section className="text-center bg-[#000000] text-white rounded-[24px] p-8">
           <h2 className="font-serif text-3xl font-bold">Reserva tu noche de visa con cancelación gratuita 48h</h2>
           <p className="text-white/80 mt-2">Habitación Doble desde $110.000 con baño privado. Disponibilidad en tiempo real.</p>
           <div className="mt-6 flex justify-center gap-3">

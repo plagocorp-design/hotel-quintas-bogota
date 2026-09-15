@@ -28,7 +28,7 @@ export default function ComparativaPage() {
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      <section className="bg-[#1A2B4A] text-white py-12">
+      <section className="bg-[#000000] text-white py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-[#C9A86A] text-sm font-semibold tracking-widest">TABLA REAL 2026 · DISTANCIAS A PIE MEDIDAS CON GOOGLE MAPS</div>
           <h1 className="font-serif text-4xl font-bold mt-2">Hotel Quintas vs Hyatt Place vs Hilton Corferias: ¿Cuál te hace perder plata y sueño?</h1>
@@ -39,10 +39,10 @@ export default function ComparativaPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 space-y-8">
         <div className="overflow-x-auto">
           <table className="w-full text-sm border rounded-2xl overflow-hidden">
-            <thead className="bg-[#1A2B4A] text-white">
+            <thead className="bg-[#000000] text-white">
               <tr>
                 <th className="p-3 text-left">Criterio</th>
-                <th className="p-3 bg-[#C9A86A] text-[#1A2B4A]">Hotel Quintas ⭐ GANA</th>
+                <th className="p-3 bg-[#C9A86A] text-[#000000]">Hotel Quintas ⭐ GANA</th>
                 <th className="p-3">Hyatt Place Convention</th>
                 <th className="p-3">Hilton Corferias</th>
                 <th className="p-3">Fairfield Embajada</th>

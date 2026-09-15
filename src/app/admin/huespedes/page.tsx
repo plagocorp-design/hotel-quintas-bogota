@@ -15,7 +15,7 @@ export default function Huespedes(){
       <h1 className="font-serif text-2xl font-bold">Huéspedes / CRM — Real DB</h1>
       <div className="flex gap-2">
         <input placeholder="Buscar nombre/tel/email" value={q} onChange={e=>setQ(e.target.value)} className="border rounded-xl px-3 py-2 flex-1"/>
-        <button onClick={load} className="bg-[#1A2B4A] text-white px-4 rounded-xl">Buscar</button>
+        <button onClick={load} className="bg-[#000000] text-white px-4 rounded-xl">Buscar</button>
       </div>
       <Card className="p-4 overflow-x-auto">
         <table className="w-full text-sm">

@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${geist.variable} ${playfair.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col bg-[#FFFBF5]" suppressHydrationWarning>{children}
+      <body className="min-h-full flex flex-col bg-[#FFFFFF]" suppressHydrationWarning>{children}
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify({
         "@context":"https://schema.org","@type":"Hotel",name:"Hotel Quintas de Bogotá",
         url:"https://hotelquintasdebogota.com",

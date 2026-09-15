@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FFFBF5;
-  --foreground: #1A2B4A;
+  --background: #FFFFFF;
+  --foreground: #000000;
   --beige: #F5F1E8;
   --beige-dark: #E8E0C8;
   --green-soft: #E8F0E8;
   --green: #2D5016;
   --gold: #C9A86A;
   --gold-dark: #A68B4A;
-  --navy: #1A2B4A;
+  --navy: #000000;
   --muted: #6B7280;
 }
 

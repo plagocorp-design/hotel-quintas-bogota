@@ -22,7 +22,7 @@ export default async function Habitaciones({searchParams}:{searchParams: Promise
         <p className="text-gray-600">Contenido 100% dinámico desde base de datos. {filtered.length} tipos disponibles.</p>
         <div className="mt-4 flex gap-2 flex-wrap">
           <span className="text-sm py-2">Filtrar por personas:</span>
-          {[0,1,2,3,5].map(n=> <Link key={n} href={n===0?"/habitaciones":`/habitaciones?personas=${n}`} className={`px-3 py-1 rounded-full text-sm border ${personas===n?"bg-[#1A2B4A] text-white":"bg-white"}`}>{n===0?"Todas":`${n} pers`}</Link>)}
+          {[0,1,2,3,5].map(n=> <Link key={n} href={n===0?"/habitaciones":`/habitaciones?personas=${n}`} className={`px-3 py-1 rounded-full text-sm border ${personas===n?"bg-[#000000] text-white":"bg-white"}`}>{n===0?"Todas":`${n} pers`}</Link>)}
         </div>
         <div className="mt-6 grid md:grid-cols-2 gap-6">
           {filtered.map(r=>(

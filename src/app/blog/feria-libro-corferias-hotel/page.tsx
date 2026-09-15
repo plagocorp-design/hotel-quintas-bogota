@@ -13,7 +13,7 @@ export default function Post(){
         <p className="mt-3 text-gray-600">Guía para expositores: por qué Teusaquillo es mejor que la Av. Esperanza ruidosa.</p>
         <h2 className="font-serif text-2xl font-bold mt-6">A 1.3 km del arco de Corferias</h2>
         <p>15 min a pie por la Calle 22. Vuelves a almorzar o a dejar muestras. Habitaciones para 5 con bañera por $200.000. <Link href="/hotel-cerca-corferias-bogota" className="text-[#C9A86A] underline">Ver hotel Corferias →</Link></p>
-        <div className="mt-6 p-6 bg-[#1A2B4A] text-white rounded-2xl text-center">
+        <div className="mt-6 p-6 bg-[#000000] text-white rounded-2xl text-center">
           <Link href="/reservas?roomType=familiar"><Button variant="gold">Tarifa Feria del Libro</Button></Link>
         </div>
       </article>

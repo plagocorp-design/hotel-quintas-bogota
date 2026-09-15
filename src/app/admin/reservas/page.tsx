@@ -68,7 +68,7 @@ export default function AdminReservas(){
       )}
 
       <div className="flex gap-2 flex-wrap items-center">
-        {statuses.map(s=> <button key={s} onClick={()=>setFilter(s)} className={`px-3 py-1 rounded-full text-xs ${filter===s?"bg-[#1A2B4A] text-white":"bg-white border"}`}>{s}</button>)}
+        {statuses.map(s=> <button key={s} onClick={()=>setFilter(s)} className={`px-3 py-1 rounded-full text-xs ${filter===s?"bg-[#000000] text-white":"bg-white border"}`}>{s}</button>)}
         <input placeholder="Buscar código/huésped" value={search} onChange={e=>setSearch(e.target.value)} className="ml-auto border rounded-full px-3 py-1 text-sm"/>
       </div>
 
@@ -89,7 +89,7 @@ export default function AdminReservas(){
                   {["PENDIENTE","CONFIRMADA"].includes(r.status) && <button onClick={()=>action(r.id,"checkin")} className="text-xs bg-green-600 text-white px-2 py-1 rounded-full">Check-in → OCUPADA</button>}
                   {r.status==="CHECKIN" && <button onClick={()=>action(r.id,"checkout")} className="text-xs bg-yellow-500 text-white px-2 py-1 rounded-full">Check-out → LIMPIEZA</button>}
                   {r.status!=="CANCELADA" && r.status!=="CHECKOUT" && <button onClick={()=>{ if(confirm("¿Cancelar?")) action(r.id,"cancel")}} className="text-xs bg-red-600 text-white px-2 py-1 rounded-full">Cancelar</button>}
-                  {r.status!=="CANCELADA" && <button onClick={()=>action(r.id,"markPaid")} className="text-xs bg-[#1A2B4A] text-white px-2 py-1 rounded-full">Pagar</button>}
+                  {r.status!=="CANCELADA" && <button onClick={()=>action(r.id,"markPaid")} className="text-xs bg-[#000000] text-white px-2 py-1 rounded-full">Pagar</button>}
                 </td>
               </tr>
             ))}

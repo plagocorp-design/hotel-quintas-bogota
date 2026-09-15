@@ -27,7 +27,7 @@ export default function BlogIndex() {
                 <div className="text-xs bg-[#C9A86A] text-white px-2 py-1 rounded-full w-fit">{p.tag}</div>
                 <div className="font-semibold mt-3">{p.title}</div>
                 <div className="text-sm text-gray-500 mt-1">{p.desc}</div>
-                <div className="text-sm text-[#1A2B4A] mt-3 underline">Leer guía →</div>
+                <div className="text-sm text-[#000000] mt-3 underline">Leer guía →</div>
               </Card>
             </Link>
           ))}

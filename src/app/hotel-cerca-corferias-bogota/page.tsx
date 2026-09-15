@@ -51,7 +51,7 @@ export default function CorferiasPage() {
           <p className="mt-3 text-gray-600">Si vienes a la Feria del Libro, AgroExpo, Feria del Hogar o Andina Pack, la jornada es de 10am a 7pm de pie. Volver a una habitación familiar amplia para 5 con dos camas dobles grandes, baño con agua caliente a buena presión y WiFi de fibra que sí aguanta videollamada, marca la diferencia. A diferencia de hoteles sobre la Av. Esperanza (65dB por montacargas), nosotros estamos en una calle arbolada de Teusaquillo pero a 1.3 km.</p>
           <div className="mt-4 overflow-x-auto">
             <table className="w-full text-sm border rounded-xl overflow-hidden">
-              <thead className="bg-[#1A2B4A] text-white"><tr><th className="p-3 text-left">Hotel</th><th className="p-3">Distancia</th><th className="p-3">Tiempo</th><th className="p-3">Ruido</th></tr></thead>
+              <thead className="bg-[#000000] text-white"><tr><th className="p-3 text-left">Hotel</th><th className="p-3">Distancia</th><th className="p-3">Tiempo</th><th className="p-3">Ruido</th></tr></thead>
               <tbody>
                 <tr className="bg-[#F5F1E8] font-semibold"><td className="p-3">Hotel Quintas Teusaquillo</td><td className="p-3 text-center">1.3 km</td><td className="p-3 text-center">15 min a pie</td><td className="p-3 text-center">Tranquilo</td></tr>
                 <tr><td className="p-3">Hoteles Av. Esperanza</td><td className="p-3 text-center">0.8 km</td><td className="p-3 text-center">10 min</td><td className="p-3 text-center">Ruidoso</td></tr>
@@ -67,7 +67,7 @@ export default function CorferiasPage() {
             <p className="text-sm text-gray-600 mt-2">Habitaciones familiares interconectables para el mismo stand. Más barato que 3 dobles y con sala de estar para reuniones rápidas. Limpieza 9.0 y recepción que guarda muestras hasta tu vuelo.</p>
             <Link href="/habitaciones#familar" className="text-sm text-[#C9A86A] underline mt-3 block">Ver familiares con bañera →</Link>
           </Card>
-          <Card className="p-6 bg-[#1A2B4A] text-white">
+          <Card className="p-6 bg-[#000000] text-white">
             <h3 className="font-semibold">Desayuno desde las 6am para expositores</h3>
             <p className="text-sm text-white/80 mt-2">Si tu stand abre a las 8am, desayunas antes sin correr. Y a 2.5km de Gran Estación para cenas de negocios.</p>
           </Card>

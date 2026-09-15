@@ -11,7 +11,7 @@ export default function AdminLayout({children}:{children:React.ReactNode}){
           <div className="font-semibold text-sm md:text-base">Panel de Administración — Hotel Quintas de Bogotá</div>
           <div className="flex items-center gap-2">
             <span className="hidden sm:inline-flex text-sm bg-green-100 text-green-800 px-2 py-1 rounded-full">● Online</span>
-            <a href="/" className="text-sm text-[#1A2B4A] underline">Ver web</a>
+            <a href="/" className="text-sm text-[#000000] underline">Ver web</a>
           </div>
         </header>
         <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 md:p-6 scrollbar-thin scrollbar-thumb-[#C9A86A]/40 hover:scrollbar-thumb-[#C9A86A]">
