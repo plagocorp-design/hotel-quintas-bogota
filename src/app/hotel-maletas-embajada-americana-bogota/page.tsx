@@ -26,7 +26,7 @@ export default function HotelGuardaMaletasPage() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
-      { "@type: "Question", name: "¿Puedo dejar mi maleta en el hotel aunque no me hospede?", acceptedAnswer: { "@type": "Answer", text: "Sí, aceptamos guarda-equipaje para huéspedes y visitantes que tengan cita en la Embajada. Llama por WhatsApp al +573176760460 y coordinamos tu llegada." } },
+      { "@type": "Question", name: "¿Puedo dejar mi maleta en el hotel aunque no me hospede?", acceptedAnswer: { "@type": "Answer", text: "Sí, aceptamos guarda-equipaje para huéspedes y visitantes que tengan cita en la Embajada. Llama por WhatsApp al +573176760460 y coordinamos tu llegada." } },
       { "@type": "Question", name: "¿Cuánto tiempo puedo dejar mi equipaje guardado?", acceptedAnswer: { "@type": "Answer", text: "Puedes dejar tu equipaje desde la mañana temprano hasta las 6:00pm del mismo día. Si necesitas más tiempo, coordina con recepción." } },
       { "@type": "Question", name: "¿Es seguro dejar electrónicos y documentos en el hotel?", acceptedAnswer: { "@type": "Answer", text: "Sí, tenemos una bodega cerrada con llave donde guardamos todo. No manipulamos tu equipaje. Solo tú puedes recogerlo con tu identificación." } },
       { "@type": "Question", name: "¿Qué objetos puedo dejar guardados en el hotel?", acceptedAnswer: { "@type": "Answer", text: "Celulares, maletas, mochilas, power banks, audífonos, laptops, documentos y cualquier objeto que no puedas llevar a la Embajada de Estados Unidos." } },
@@ -48,7 +48,7 @@ export default function HotelGuardaMaletasPage() {
     url: "https://hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "8.8", reviewCount: "470" },
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },
   };
 
   return (

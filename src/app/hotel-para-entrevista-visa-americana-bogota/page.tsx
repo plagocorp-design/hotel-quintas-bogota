@@ -29,8 +29,8 @@ export default function HotelEntrevistaVisaPage() {
       { "@type": "Question", name: "¿Qué tips debo seguir el día de mi entrevista de visa?", acceptedAnswer: { "@type": "Answer", text: "Llega 30 minutos antes de tu hora, viste ropa formal o business casual, lleva todos los documentos organizados en orden, habla con confianza y responde directamente. No lleves celular a la Embajada." } },
       { "@type": "Question", name: "¿Qué ropa debo usar para la entrevista de visa americana?", acceptedAnswer: { "@type": "Answer", text: "Usa ropa formal o business casual: camisa de vestir, pantalón de vestir o falda, zapatos cerrados. Evita jeans, tenis o ropa deportiva. Quieres dar una primera impresión profesional." } },
       { "@type": "Question", name: "¿Qué documentos debo llevar a mi entrevista de visa?", acceptedAnswer: { "@type": "Answer", text: "Pasaporte vigente, confirmación del DS-160 impresa, foto 5x5 con fondo blanco, carta de invitación si aplica, comprobante de pago de la MRV fee y documentos de respaldo (trabajo, estudios, propiedad). Nosotros te imprimimos lo que necesites." } },
-      { "@type: "Question", name: "¿Por qué es importante llegar 30 minutos antes a la entrevista?", acceptedAnswer: { "@type": "Answer", text: "La Embajada de Estados Unidos exige llegar 30 minutos antes por seguridad y verificación de documentos. Si llegas tarde, pueden cancelar tu cita. Con nuestro hotel a 7 min caminando, llegas sin prisa y con tiempo suficiente." } },
-      { "@type: "Question", name: "¿Puedo preparar mis documentos en el hotel antes de la entrevista?", acceptedAnswer: { "@type": "Answer", text: "Sí, nuestras habitaciones son silenciosas y cómodas para revisar tus documentos la noche anterior. También tenemos impresora en recepción por si necesitas imprimir algo de último momento." } },
+      { "@type": "Question", name: "¿Por qué es importante llegar 30 minutos antes a la entrevista?", acceptedAnswer: { "@type": "Answer", text: "La Embajada de Estados Unidos exige llegar 30 minutos antes por seguridad y verificación de documentos. Si llegas tarde, pueden cancelar tu cita. Con nuestro hotel a 7 min caminando, llegas sin prisa y con tiempo suficiente." } },
+      { "@type": "Question", name: "¿Puedo preparar mis documentos en el hotel antes de la entrevista?", acceptedAnswer: { "@type": "Answer", text: "Sí, nuestras habitaciones son silenciosas y cómodas para revisar tus documentos la noche anterior. También tenemos impresora en recepción por si necesitas imprimir algo de último momento." } },
     ],
   };
   const breadcrumbJsonLd = {
@@ -38,7 +38,7 @@ export default function HotelEntrevistaVisaPage() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type: "ListItem", position: 2, name: "Hotel Entrevista Visa Americana", item: "https://hotelquintasdebogota.com/hotel-para-entrevista-visa-americana-bogota" },
+      { "@type": "ListItem", position: 2, name: "Hotel Entrevista Visa Americana", item: "https://hotelquintasdebogota.com/hotel-para-entrevista-visa-americana-bogota" },
     ],
   };
   const hotelJsonLd = {
@@ -48,7 +48,7 @@ export default function HotelEntrevistaVisaPage() {
     url: "https://hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "8.8", reviewCount: "470" },
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },
   };
 
   return (

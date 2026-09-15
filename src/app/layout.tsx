@@ -67,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         url:"https://hotelquintasdebogota.com",
         address:{ "@type":"PostalAddress", streetAddress:"Cl. 22 Bis #44A-19", addressLocality:"Bogotá", addressRegion:"Cundinamarca", addressCountry:"CO"},
         telephone:"+57 317 6760460", email:"hotelquintasdebogota@gmail.com",
-        starRating:{ "@type":"Rating", ratingValue:"3"}, aggregateRating:{ "@type":"AggregateRating", ratingValue:"8.8", reviewCount:"470"}
+        starRating:{ "@type":"Rating", ratingValue:"3"}, aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" }
       })}} />
       </body>
     </html>
