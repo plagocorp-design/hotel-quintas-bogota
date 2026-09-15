@@ -1,15 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async rewrites() {
-    return [
-      {
-        source: "/",
-        destination: "/whatsapp-inbox",
-        has: [{ type: "host", value: "whatsapp.hotelquintasdebogota.com" }],
-      },
-    ];
-  },
+  /* config options here */
 };
 
 export default nextConfig;
