@@ -1,0 +1,5 @@
+hotel_id,room_id,room_name,room_description,room_capacity,rate_date,currency,price_per_night,cancellation_policy,max_occupancy,min_occupancy
+HQBOG001,SEN,Sencilla,"Habitación sencilla con baño privado, WiFi y desayuno incluido",1,2026-09-15,COP,80000,"Cancelación gratuita hasta 24 horas antes",1,1
+HQBOG001,DOB,Doble,"Habitación doble con baño privado, WiFi y desayuno incluido",2,2026-09-15,COP,90000,"Cancelación gratuita hasta 24 horas antes",2,1
+HQBOG001,TRI,Triple,"Habitación triple con baño privado, WiFi y desayuno incluido",3,2026-09-15,COP,140000,"Cancelación gratuita hasta 24 horas antes",3,2
+HQBOG001,CUA,Cuádruple,"Habitación cuádruple con baño privado, WiFi y desayuno incluido",4,2026-09-15,COP,160000,"Cancelación gratuita hasta 24 horas antes",4,3
