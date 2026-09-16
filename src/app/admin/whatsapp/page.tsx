@@ -29,6 +29,7 @@ export default function WhatsAppPanel(){
   const createConv=async()=>{
     if(!phone) return
     const r=await fetch("/api/whatsapp/conversations",{method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({phone, contactName:phone})})
+    if(!r.ok) return
     const d=await r.json(); setPhone(""); loadConvs(); setActive(d)
   }
 

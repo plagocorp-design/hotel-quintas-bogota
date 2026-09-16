@@ -1,20 +1,23 @@
 "use client"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
 export default function Configuracion(){
   const [settings,setSettings]=useState<any>(null)
   const [users,setUsers]=useState<any[]>([])
+  const [err,setErr]=useState("")
+  const router=useRouter()
   useEffect(()=>{
-    fetch("/api/hotel-settings").then(r=>r.json()).then(setSettings).catch(()=>{})
-    // users fetch via prisma? simple list via dashboard not needed, show hardcoded but real can be fetched
-  },[])
+    fetch("/api/hotel-settings").then(r=>{if(!r.ok)throw r;return r.json()}).then(setSettings).catch(()=>{setErr("Sesión expirada");setTimeout(()=>router.push("/admin/login"),1500)})
+  },[router])
   const save=async()=>{
     const res=await fetch("/api/hotel-settings",{method:"PUT", headers:{"Content-Type":"application/json"}, body:JSON.stringify(settings)})
     if(res.ok) alert("Configuración guardada en DB")
   }
-  if(!settings) return <div className="p-8">Cargando configuración real...</div>
+  if(err) return <div className="p-8 text-center"><div className="text-red-600 text-lg font-semibold">{err}</div><div className="text-sm text-gray-500 mt-2">Redirigiendo al login...</div></div>
+  if(!settings) return <div className="p-8">Cargando configuración...</div>
   return (
     <div className="space-y-4">
       <h1 className="font-serif text-2xl font-bold">Configuración — Persistente en DB</h1>
@@ -44,7 +47,7 @@ export default function Configuracion(){
       </Card>
       <Card className="p-4">
         <div className="font-semibold">Usuarios y roles</div>
-        <div className="text-sm mt-2">Admin: admin@hotelquintas.com · Recepción: javier@hotelquintas.com · Limpieza: limpieza@hotelquintas.com (pass admin123) — Gestión completa vía DB, roles validados en cada endpoint y middleware.</div>
+        <div className="text-sm mt-2">Gestión completa vía DB, roles validados en cada endpoint y middleware.</div>
       </Card>
     </div>
   )

@@ -13,11 +13,16 @@ export default function AdminReservas(){
   const [showForm,setShowForm]=useState(false)
   const [form,setForm]=useState({name:"",phone:"",email:"",roomTypeSlug:"doble",checkIn:"",checkOut:"",adults:2, source:"MANUAL", notes:""})
   const [search,setSearch]=useState("")
+  const [err,setErr]=useState("")
 
   const load=async()=>{
     const q = filter==="TODAS" ? "" : `?status=${filter}`
-    const [r,t]=await Promise.all([fetch(`/api/bookings${q}`).then(x=>x.json()), fetch("/api/room-types").then(x=>x.json())])
-    setReservas(r); setTypes(t)
+    try{
+      const [r,t]=await Promise.all([fetch(`/api/bookings${q}`), fetch("/api/room-types")])
+      if(!r.ok||!t.ok) throw new Error()
+      const [rd,td]=await Promise.all([r.json(), t.json()])
+      setReservas(rd); setTypes(td)
+    }catch{ setErr("Sesión expirada") }
   }
   useEffect(()=>{load()},[filter])
   useEffect(()=>{ if(types[0] && !form.roomTypeSlug) setForm(f=>({...f, roomTypeSlug: types[0].slug})) },[types])
@@ -26,16 +31,15 @@ export default function AdminReservas(){
     const res=await fetch("/api/bookings",{method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({
       name:form.name, phone:form.phone, email:form.email, checkIn:form.checkIn, checkOut:form.checkOut, adults:Number(form.adults), roomTypeSlug: form.roomTypeSlug, source:form.source, notes: form.notes
     })})
+    if(!res.ok){ const d=await res.json().catch(()=>({error:"Error"})); return alert(d.error) }
     const data=await res.json()
-    if(!res.ok) return alert(data.error)
     alert(`Reserva creada ${data.reservation.code} habitación ${data.room.number}`)
     setShowForm(false); load()
   }
 
   const action=async(id:string, act:string)=>{
     const res=await fetch(`/api/reservations/${id}`,{method:"PATCH", headers:{"Content-Type":"application/json"}, body:JSON.stringify({action: act})})
-    const data=await res.json()
-    if(!res.ok) return alert(data.error)
+    if(!res.ok){ const d=await res.json().catch(()=>({error:"Error"})); return alert(d.error) }
     load()
   }
 

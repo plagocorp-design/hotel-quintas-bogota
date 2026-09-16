@@ -11,10 +11,15 @@ export default function AdminHabitaciones(){
   const [types,setTypes]=useState<any[]>([])
   const [form,setForm]=useState({number:"", floor:1, typeId:"", status:"DISPONIBLE"})
   const [editing,setEditing]=useState(false)
+  const [err,setErr]=useState("")
 
   const load=async()=>{
-    const [r,t]=await Promise.all([fetch("/api/rooms").then(x=>x.json()), fetch("/api/room-types").then(x=>x.json())])
-    setRooms(r); setTypes(t); if(t[0] && !form.typeId) setForm(f=>({...f, typeId:t[0].id}))
+    try{
+      const [r,t]=await Promise.all([fetch("/api/rooms"), fetch("/api/room-types")])
+      if(!r.ok||!t.ok) throw new Error()
+      const [rd,td]=await Promise.all([r.json(), t.json()])
+      setRooms(rd); setTypes(td); if(td[0] && !form.typeId) setForm(f=>({...f, typeId:td[0].id}))
+    }catch{ setErr("Sesión expirada") }
   }
   useEffect(()=>{load()},[])
 
@@ -32,6 +37,7 @@ export default function AdminHabitaciones(){
 
   return (
     <div className="space-y-4">
+      {err && <div className="text-center py-8"><div className="text-red-600 font-semibold">{err}</div></div>}
       <div className="flex justify-between items-center">
         <h1 className="font-serif text-2xl font-bold">Gestión de Habitaciones — Real DB</h1>
         <Button variant="gold" onClick={()=>setEditing(!editing)}>{editing?"Cerrar":" + Nueva habitación"}</Button>

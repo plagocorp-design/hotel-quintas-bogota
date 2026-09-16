@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
@@ -7,8 +8,19 @@ import { formatCOP } from "@/lib/utils"
 
 export default function AdminDashboard(){
   const [data,setData]=useState<any>(null)
-  useEffect(()=>{ fetch("/api/dashboard").then(r=>r.json()).then(setData)},[])
-  if(!data) return <div className="p-8">Cargando dashboard real desde DB...</div>
+  const [err,setErr]=useState("")
+  const router=useRouter()
+  useEffect(()=>{
+    fetch("/api/dashboard").then(r=>{
+      if(!r.ok) throw r
+      return r.json()
+    }).then(setData).catch(()=>{
+      setErr("Sesión expirada")
+      setTimeout(()=>router.push("/admin/login"),1500)
+    })
+  },[router])
+  if(err) return <div className="p-8 text-center"><div className="text-red-600 text-lg font-semibold">{err}</div><div className="text-sm text-gray-500 mt-2">Redirigiendo al login...</div></div>
+  if(!data) return <div className="p-8">Cargando dashboard...</div>
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
@@ -30,7 +42,7 @@ export default function AdminDashboard(){
             <table className="w-full text-sm">
               <thead><tr className="text-gray-500"><th className="text-left py-2">Código</th><th>Huésped</th><th>Hab</th><th>Fechas</th><th>Origen</th><th>Estado</th></tr></thead>
               <tbody>
-                {data.pendingReservations.map((r:any)=> (
+                {(data.pendingReservations||[]).map((r:any)=> (
                   <tr key={r.id} className="border-t">
                     <td className="py-2 font-mono text-xs">{r.code}</td>
                     <td>{r.guest.name}</td><td>{r.room?.number || r.roomType.name}</td><td className="text-xs">{new Date(r.checkIn).toLocaleDateString()} → {new Date(r.checkOut).toLocaleDateString()}</td>
@@ -40,13 +52,13 @@ export default function AdminDashboard(){
                 ))}
               </tbody>
             </table>
-            {data.pendingReservations.length===0 && <div className="text-sm text-gray-500 py-4 text-center">Sin reservas próximas</div>}
+            {(!data.pendingReservations||data.pendingReservations.length===0) && <div className="text-sm text-gray-500 py-4 text-center">Sin reservas próximas</div>}
           </div>
         </Card>
         <Card className="p-4">
           <div className="font-semibold">Estado habitaciones (real)</div>
           <div className="mt-3 space-y-2 max-h-80 overflow-y-auto">
-            {data.rooms.map((r:any)=> (
+            {(data.rooms||[]).map((r:any)=> (
               <div key={r.number} className="flex justify-between items-center border-b py-2 text-sm">
                 <span>#{r.number} · {r.type.name}</span>
                 <Badge className={r.status==="DISPONIBLE"?"bg-green-100 text-green-800":r.status==="OCUPADA"?"bg-red-100 text-red-800":r.status==="LIMPIEZA"?"bg-yellow-100 text-yellow-800":"bg-gray-200"}>{r.status}</Badge>
@@ -61,8 +73,8 @@ export default function AdminDashboard(){
         <Card className="p-4">
           <div className="font-semibold">Reservas por canal (mes real)</div>
           <div className="mt-4 space-y-2 text-sm">
-            {data.bySource.map((b:any)=> <div key={b.source} className="flex justify-between"><span>{b.source}</span><span>{b._count.source} reservas</span></div>)}
-            {data.bySource.length===0 && <div className="text-gray-500">Sin datos aún</div>}
+            {(data.bySource||[]).map((b:any)=> <div key={b.source} className="flex justify-between"><span>{b.source}</span><span>{b._count.source} reservas</span></div>)}
+            {(!data.bySource||data.bySource.length===0) && <div className="text-gray-500">Sin datos aún</div>}
           </div>
         </Card>
         <Card className="p-4">

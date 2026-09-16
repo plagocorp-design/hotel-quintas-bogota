@@ -8,11 +8,16 @@ export default function Calendario(){
   const [reservations,setReservations]=useState<any[]>([])
   const [blocks,setBlocks]=useState<any[]>([])
   const [offset,setOffset]=useState(0)
+  const [err,setErr]=useState("")
   const days = Array.from({length:14},(_,i)=>{ const d=new Date(); d.setDate(d.getDate()+offset+i); return d})
 
   const load=async()=>{
-    const [r,res,b]=await Promise.all([fetch("/api/rooms").then(x=>x.json()), fetch("/api/bookings").then(x=>x.json()), fetch("/api/blocked-dates").then(x=>x.json())])
-    setRooms(r); setReservations(res.filter((x:any)=> ["PENDIENTE","CONFIRMADA","CHECKIN"].includes(x.status))); setBlocks(b)
+    try{
+      const [r,res,b]=await Promise.all([fetch("/api/rooms"), fetch("/api/bookings"), fetch("/api/blocked-dates")])
+      if(!r.ok||!res.ok||!b.ok) throw new Error()
+      const [rd,red,bd]=await Promise.all([r.json(), res.json(), b.json()])
+      setRooms(rd); setReservations(red.filter((x:any)=> ["PENDIENTE","CONFIRMADA","CHECKIN"].includes(x.status))); setBlocks(bd)
+    }catch{ setErr("Sesión expirada") }
   }
   useEffect(()=>{load()},[])
 
@@ -44,6 +49,7 @@ export default function Calendario(){
 
   return (
     <div className="space-y-4">
+      {err && <div className="text-center py-8"><div className="text-red-600 font-semibold">{err}</div></div>}
       <div className="flex justify-between items-center">
         <h1 className="font-serif text-2xl font-bold">Calendario — Channel Manager real</h1>
         <div className="flex gap-2">

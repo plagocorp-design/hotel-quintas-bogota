@@ -1,21 +1,25 @@
 "use client"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import { Card } from "@/components/ui/card"
 import { formatCOP } from "@/lib/utils"
 
 export default function Reportes(){
   const [data,setData]=useState<any>(null)
   const [logs,setLogs]=useState<any[]>([])
+  const [err,setErr]=useState("")
+  const router=useRouter()
   useEffect(()=>{
-    fetch("/api/dashboard").then(r=>r.json()).then(setData)
-    fetch("/api/booking-sync/webhook").then(r=>r.json()).then(d=>setLogs(d.logs||[]))
-  },[])
+    fetch("/api/dashboard").then(r=>{if(!r.ok)throw r;return r.json()}).then(setData).catch(()=>{setErr("Sesión expirada");setTimeout(()=>router.push("/admin/login"),1500)})
+    fetch("/api/booking-sync/webhook").then(r=>{if(!r.ok)return{logs:[]};return r.json()}).then(d=>setLogs(d.logs||[])).catch(()=>{})
+  },[router])
   const exportCSV=()=>{
     if(!data) return
     const csv="data:text/csv;charset=utf-8,Metrica,Valor\nOcupacion,"+data.occupationPct+"%\nIngresos,"+data.ingresosMes+"\nReservas,"+data.monthReservations
     const link=document.createElement("a"); link.href=encodeURI(csv); link.download="reporte_hotel_quintas.csv"; link.click()
   }
-  if(!data) return <div className="p-8">Cargando reportes reales...</div>
+  if(err) return <div className="p-8 text-center"><div className="text-red-600 text-lg font-semibold">{err}</div><div className="text-sm text-gray-500 mt-2">Redirigiendo al login...</div></div>
+  if(!data) return <div className="p-8">Cargando reportes...</div>
   return (
     <div className="space-y-4">
       <h1 className="font-serif text-2xl font-bold">Reportes — Datos reales DB</h1>
