@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { getSession } from "@/lib/auth";
 
 export async function GET() {
+  const s = await getSession();
+  if (!s) return NextResponse.json({ error: "No autenticado" }, { status: 401 });
   const today = new Date(); today.setHours(0,0,0,0);
   const tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
   const startMonth = new Date(today.getFullYear(), today.getMonth(), 1);

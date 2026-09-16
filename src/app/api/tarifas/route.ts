@@ -23,3 +23,12 @@ export async function POST(req: NextRequest) {
   const season = await prisma.rateSeason.create({ data: { name, start: new Date(start), end: new Date(end), multiplier: Number(multiplier), roomTypeId: roomTypeId||null } });
   return NextResponse.json(season);
 }
+
+export async function DELETE(req: NextRequest) {
+  const s = await getSession();
+  if (!s || s.role !== "ADMIN") return NextResponse.json({ error: "Solo admin" }, { status: 403 });
+  const { id } = await req.json();
+  if (!id) return NextResponse.json({ error: "Falta id" }, { status: 400 });
+  await prisma.rateSeason.delete({ where: { id } });
+  return NextResponse.json({ ok: true });
+}

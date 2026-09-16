@@ -8,24 +8,36 @@ export default function Tarifas(){
   const [types,setTypes]=useState<any[]>([])
   const [seasons,setSeasons]=useState<any[]>([])
   const [newSeason,setNewSeason]=useState({name:"", start:"", end:"", multiplier:"1.3", roomTypeId:""})
+  const [msg, setMsg] = useState("")
   const load=async()=>{
     const r=await fetch("/api/tarifas").then(x=>x.json())
     setTypes(r.types); setSeasons(r.seasons)
   }
   useEffect(()=>{load()},[])
   const updatePrice=async(id:string, price:number)=>{
-    await fetch("/api/tarifas",{method:"PUT", headers:{"Content-Type":"application/json"}, body:JSON.stringify({typeId:id, basePrice:price})})
+    const r = await fetch("/api/tarifas",{method:"PUT", headers:{"Content-Type":"application/json"}, body:JSON.stringify({typeId:id, basePrice:price})})
+    if (!r.ok) { const d = await r.json(); setMsg("Error: " + (d.error || r.status)); setTimeout(()=>setMsg(""),3000); return }
+    setMsg("Guardado"); setTimeout(()=>setMsg(""),2000)
     load()
   }
   const createSeason=async()=>{
-    await fetch("/api/tarifas",{method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({...newSeason, multiplier: Number(newSeason.multiplier)})})
+    const r = await fetch("/api/tarifas",{method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({...newSeason, multiplier: Number(newSeason.multiplier)})})
+    if (!r.ok) { const d = await r.json(); setMsg("Error: " + (d.error || r.status)); setTimeout(()=>setMsg(""),3000); return }
     setNewSeason({name:"", start:"", end:"", multiplier:"1.3", roomTypeId:""}); load()
+  }
+  const deleteSeason=async(id:string)=>{
+    if (!confirm("Eliminar esta temporada?")) return
+    const r = await fetch("/api/tarifas",{method:"DELETE", headers:{"Content-Type":"application/json"}, body:JSON.stringify({id})})
+    if (!r.ok) { setMsg("Error al eliminar"); setTimeout(()=>setMsg(""),3000); return }
+    setMsg("Temporada eliminada"); setTimeout(()=>setMsg(""),2000)
+    load()
   }
   return (
     <div className="space-y-4">
-      <h1 className="font-serif text-2xl font-bold">Precios y Tarifas — Dinámico real</h1>
+      <h1 className="font-serif text-2xl font-bold">Precios y Tarifas</h1>
+      {msg && <div className={`text-sm p-2 rounded-xl ${msg.startsWith("Error") ? "text-red-600 bg-red-50" : "text-green-600 bg-green-50"}`}>{msg}</div>}
       <Card className="p-4">
-        <div className="font-semibold">Precios base (afectan motor público inmediatamente)</div>
+        <div className="font-semibold">Precios base</div>
         <div className="mt-3 grid md:grid-cols-2 gap-3">
           {types.map((t:any)=>(
             <label key={t.id} className="flex justify-between items-center border rounded-xl px-3 py-2 gap-2">
@@ -41,7 +53,15 @@ export default function Tarifas(){
       <Card className="p-4">
         <div className="font-semibold">Temporadas (multiplicador)</div>
         <div className="mt-3 space-y-2 text-sm">
-          {seasons.map((s:any)=> <div key={s.id} className="flex justify-between border rounded-xl px-3 py-2"><span>{s.name} {new Date(s.start).toLocaleDateString()}→{new Date(s.end).toLocaleDateString()}</span><span>x{s.multiplier}</span></div>)}
+          {seasons.map((s:any)=> (
+            <div key={s.id} className="flex justify-between items-center border rounded-xl px-3 py-2">
+              <span>{s.name} {new Date(s.start).toLocaleDateString()}→{new Date(s.end).toLocaleDateString()}</span>
+              <div className="flex items-center gap-3">
+                <span className="font-mono">x{s.multiplier}</span>
+                <button onClick={()=>deleteSeason(s.id)} className="text-red-500 hover:text-red-700 text-xs">Eliminar</button>
+              </div>
+            </div>
+          ))}
           {seasons.length===0 && <div className="text-gray-500">Sin temporadas</div>}
         </div>
         <div className="mt-4 grid md:grid-cols-5 gap-2">

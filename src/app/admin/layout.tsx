@@ -1,11 +1,18 @@
+"use client"
+import { usePathname } from "next/navigation"
 import Sidebar from "@/components/admin/Sidebar"
 
 export default function AdminLayout({children}:{children:React.ReactNode}){
+  const pathname = usePathname()
+  const isLoginPage = pathname === "/admin/login"
+
+  if (isLoginPage) {
+    return <>{children}</>
+  }
+
   return (
     <div className="flex h-screen overflow-hidden bg-[#F5F1E8]">
-      {/* Verde: deslizador separado */}
       <Sidebar/>
-      {/* Rojo: deslizador separado */}
       <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
         <header className="shrink-0 bg-white border-b px-6 py-3 flex justify-between items-center sticky top-0 z-10">
           <div className="font-semibold text-sm md:text-base">Panel de Administración — Hotel Quintas de Bogotá</div>
