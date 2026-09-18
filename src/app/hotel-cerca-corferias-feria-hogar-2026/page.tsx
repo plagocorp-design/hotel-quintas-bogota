@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Hotel Cerca Feria del Hogar 2026 | Corferias",
   description: "Hotel a 7 min de la Feria del Hogar 2026 en Corferias. 18 días de duración, habitaciones familiares, guarda-equipaje gratis para compras. Reserva directa con descuento largo plazo.",
   keywords: ["hotel feria del hogar 2026","hotel hogar corferias","alojamiento feria muebles bogota","hotel cerca feria hogar corferias","hotel compras feria hogar"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-cerca-corferias-feria-hogar-2026" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-feria-hogar-2026" },
   openGraph: {
     title: "Hotel Cerca Feria del Hogar 2026 | Corferias",
     description: "Hotel a 7 min de la Feria del Hogar 2026. 18 días, habitaciones familiares, descuento largo plazo.",
-    url: "https://hotelquintasdebogota.com/hotel-cerca-corferias-feria-hogar-2026",
+    url: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-feria-hogar-2026",
     siteName: "Hotel Quintas de Bogotá",
     locale: "es_CO",
     type: "website",
@@ -37,8 +37,8 @@ export default function FeriaHogar2026Page() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Hotel Feria del Hogar 2026", item: "https://hotelquintasdebogota.com/hotel-cerca-corferias-feria-hogar-2026" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Hotel Feria del Hogar 2026", item: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-feria-hogar-2026" },
     ],
   };
   const eventJsonLd = {
@@ -54,7 +54,7 @@ export default function FeriaHogar2026Page() {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: "Hotel Quintas de Bogotá",
-    url: "https://hotelquintasdebogota.com",
+    url: "https://www.hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },

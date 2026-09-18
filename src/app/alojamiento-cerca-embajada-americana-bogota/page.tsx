@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Alojamiento Cerca Embajada Americana Bogotá | Desde $80.000",
   description: "Alojamiento económico a 7 min de la Embajada Americana. Desde $80.000 con desayuno.. WiFi, guarda-equipaje, recepción 24h.",
   keywords: ["alojamiento cerca embajada americana bogota","alojamiento economico embajada americana","hotel barato embajada americana bogota","hospedaje economico cerca embajada","alojamiento desde 80000 embajada"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/alojamiento-cerca-embajada-americana-bogota" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/alojamiento-cerca-embajada-americana-bogota" },
   openGraph: {
     title: "Alojamiento Cerca Embajada Americana Bogotá | Desde $80.000",
     description: "Alojamiento desde $80.000 a 7 min de la Embajada Americana. Desayuno incluido, WiFi gratis.",
-    url: "https://hotelquintasdebogota.com/alojamiento-cerca-embajada-americana-bogota",
+    url: "https://www.hotelquintasdebogota.com/alojamiento-cerca-embajada-americana-bogota",
     siteName: "Hotel Quintas de Bogotá",
     locale: "es_CO",
     type: "website",
@@ -37,15 +37,15 @@ export default function AlojamientoEmbajadaPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Alojamiento Cerca Embajada Americana", item: "https://hotelquintasdebogota.com/alojamiento-cerca-embajada-americana-bogota" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Alojamiento Cerca Embajada Americana", item: "https://www.hotelquintasdebogota.com/alojamiento-cerca-embajada-americana-bogota" },
     ],
   };
   const hotelJsonLd = {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: "Hotel Quintas de Bogotá",
-    url: "https://hotelquintasdebogota.com",
+    url: "https://www.hotelquintasdebogota.com",
     priceRange: "$80000 - $150000",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",

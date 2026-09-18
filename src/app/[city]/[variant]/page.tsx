@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${title} | Hotel Quintas de Bogotá`,
     description: desc,
-    alternates: { canonical: `https://hotelquintasdebogota.com/${citySlug}/${varSlug}` },
+    alternates: { canonical: `https://www.hotelquintasdebogota.com/${citySlug}/${varSlug}` },
     openGraph: { title, description: desc },
   };
 }

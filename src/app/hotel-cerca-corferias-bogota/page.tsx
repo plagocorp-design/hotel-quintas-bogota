@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Hotel Cerca de Corferias Bogotá | A 15 Min a Pie | Quintas",
   description: "Expositor o visitante de Corferias? A 1.3km del recinto. Habitaciones familiares, WiFi y parque cercano. Reserva directa sin comisión. ¡Desayuno incluido!",
   keywords: ["hotel cerca corferias bogota","alojamiento cerca corferias","hotel barato cerca corferias","hotel cerca corferias y embajada"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-cerca-corferias-bogota" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-bogota" },
 };
 
 export default function CorferiasPage() {
@@ -18,8 +18,8 @@ export default function CorferiasPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Hotel Cerca Corferias", item: "https://hotelquintasdebogota.com/hotel-cerca-corferias-bogota" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Hotel Cerca Corferias", item: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-bogota" },
     ],
   };
   return (

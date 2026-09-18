@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 export const metadata: Metadata = {
   title: "Hotel Quintas vs Hyatt vs Hilton Corferias: Tabla Real 2026 | Quintas",
   description: "¿Pagar $450k para no dormir? Comparamos distancia real a pie, ruido, desayuno y precio. Quintas 9.5 gana. Mira la tabla y reserva donde duermes.",
-  alternates: { canonical: "https://hotelquintasdebogota.com/comparativa/hotel-quintas-vs-hyatt-vs-hilton-corferias" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/comparativa/hotel-quintas-vs-hyatt-vs-hilton-corferias" },
 };
 
 export default function ComparativaPage() {

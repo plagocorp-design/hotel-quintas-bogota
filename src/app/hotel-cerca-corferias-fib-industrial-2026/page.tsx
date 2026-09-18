@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Hotel Cerca FIB 2026 Feria Industrial | Corferias",
   description: "Hotel a 7 min de FIB 2026, Feria Internacional Industrial en Corferias. 500+ expositores, WiFi fibra para B2B, desayuno temprano. Reserva directa.",
   keywords: ["hotel fib 2026","hotel feria industrial corferias","alojamiento industria bogota","hotel cerca feria industrial","hotel fabricantes corferias"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-cerca-corferias-fib-industrial-2026" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-fib-industrial-2026" },
   openGraph: {
     title: "Hotel Cerca FIB 2026 Feria Industrial | Corferias",
     description: "Hotel a 7 min de FIB 2026. 500+ expositores, WiFi fibra para B2B, desayuno temprano.",
-    url: "https://hotelquintasdebogota.com/hotel-cerca-corferias-fib-industrial-2026",
+    url: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-fib-industrial-2026",
     siteName: "Hotel Quintas de Bogotá",
     locale: "es_CO",
     type: "website",
@@ -37,8 +37,8 @@ export default function FIBIndustrial2026Page() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Hotel Cerca FIB 2026", item: "https://hotelquintasdebogota.com/hotel-cerca-corferias-fib-industrial-2026" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Hotel Cerca FIB 2026", item: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-fib-industrial-2026" },
     ],
   };
   const eventJsonLd = {
@@ -54,7 +54,7 @@ export default function FIBIndustrial2026Page() {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: "Hotel Quintas de Bogotá",
-    url: "https://hotelquintasdebogota.com",
+    url: "https://www.hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },

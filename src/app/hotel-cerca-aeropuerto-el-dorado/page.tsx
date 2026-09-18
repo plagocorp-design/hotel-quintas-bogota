@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 export const metadata: Metadata = {
   title: "Hotel Cerca Aeropuerto El Dorado | 15 Min Teusaquillo | Quintas",
   description: "¿Escala en El Dorado? Hotel en Teusaquillo a 15-20 min del aeropuerto, check-in 24h y desayuno temprano. Más tranquilo que Fontibón. ¡Reserva directa!",
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-cerca-aeropuerto-el-dorado" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-cerca-aeropuerto-el-dorado" },
 };
 
 export default function AeropuertoPage() {

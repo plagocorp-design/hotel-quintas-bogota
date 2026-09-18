@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Hotel Guarda Maletas Cerca Embajada Bogotá | Gratis",
   description: "¿Necesitas dejar tu maleta cerca de la Embajada? Guarda-equipaje gratis en nuestro hotel a 7 min. Celulares, maletas, documentos. Todo seguro. Reserva directa.",
   keywords: ["hotel guarda maletas embajada bogota","guarda equipaje cerca embajada","dejar maletas cerca embajada americana","hotel guarda celulares embajada","custodia equipaje embajada bogota"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-maletas-embajada-americana-bogota" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-maletas-embajada-americana-bogota" },
   openGraph: {
     title: "Hotel Guarda Maletas Cerca Embajada Bogotá | Gratis",
     description: "Guarda-equipaje gratis a 7 min de la Embajada. Celulares, maletas, documentos seguros.",
-    url: "https://hotelquintasdebogota.com/hotel-maletas-embajada-americana-bogota",
+    url: "https://www.hotelquintasdebogota.com/hotel-maletas-embajada-americana-bogota",
     siteName: "Hotel Quintas de Bogotá",
     locale: "es_CO",
     type: "website",
@@ -37,15 +37,15 @@ export default function HotelGuardaMaletasPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Hotel Guarda Maletas Embajada", item: "https://hotelquintasdebogota.com/hotel-maletas-embajada-americana-bogota" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Hotel Guarda Maletas Embajada", item: "https://www.hotelquintasdebogota.com/hotel-maletas-embajada-americana-bogota" },
     ],
   };
   const hotelJsonLd = {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: "Hotel Quintas de Bogotá",
-    url: "https://hotelquintasdebogota.com",
+    url: "https://www.hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },

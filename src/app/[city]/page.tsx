@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Hotel en ${city.name} | Hotel Quintas de Bogotá`,
     description: `Los mejores hoteles en ${city.name}, ${city.department}. Reserva directa sin comisión. WiFi, desayuno y recepción 24h.`,
-    alternates: { canonical: `https://hotelquintasdebogota.com/${slug}` },
+    alternates: { canonical: `https://www.hotelquintasdebogota.com/${slug}` },
     openGraph: {
       title: `Hotel en ${city.name} | Hotel Quintas`,
       description: `Hoteles recomendados en ${city.name}, ${city.department}.`,

@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Dónde Dormir Cerca de la Embajada Americana Bogotá",
   description: "Dónde dormir tranquilo cerca de la Embajada Americana. Habitaciones con cama cómoda, agua caliente, silencio. Teusaquillo, barrio seguro. Reserva directa.",
   keywords: ["donde dormir cerca embajada americana bogota","donde dormir embajada americana","hotel para dormir cerca embajada","habitacion cerca embajada americana","dormir bien antes de cita visa"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-donde-dormir-embajada-americana-bogota" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-donde-dormir-embajada-americana-bogota" },
   openGraph: {
     title: "Dónde Dormir Cerca de la Embajada Americana Bogotá",
     description: "Habitaciones cómodas a 7 min de la Embajada Americana. Agua caliente, WiFi, silencio.",
-    url: "https://hotelquintasdebogota.com/hotel-donde-dormir-embajada-americana-bogota",
+    url: "https://www.hotelquintasdebogota.com/hotel-donde-dormir-embajada-americana-bogota",
     siteName: "Hotel Quintas de Bogotá",
     locale: "es_CO",
     type: "website",
@@ -37,15 +37,15 @@ export default function DondeDormirPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Dónde Dormir Cerca Embajada Americana", item: "https://hotelquintasdebogota.com/hotel-donde-dormir-embajada-americana-bogota" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Dónde Dormir Cerca Embajada Americana", item: "https://www.hotelquintasdebogota.com/hotel-donde-dormir-embajada-americana-bogota" },
     ],
   };
   const hotelJsonLd = {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: "Hotel Quintas de Bogotá",
-    url: "https://hotelquintasdebogota.com",
+    url: "https://www.hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },

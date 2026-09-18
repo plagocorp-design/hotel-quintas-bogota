@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Hotel Cerca ESS+ Seguridad 2026 | Corferias",
   description: "Hotel a 7 min de ESS+ Seguridad 2026 en Corferias. Barrio seguro, desayuno temprano, WiFi fibra, guarda-equipaje para equipos de seguridad. Reserva directa.",
   keywords: ["hotel ess seguridad 2026","hotel feria seguridad corferias","alojamiento seguridad privada bogota","hotel cerca feria seguridad","hotel guardas seguridad corferias"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-cerca-corferias-ess-seguridad-2026" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-ess-seguridad-2026" },
   openGraph: {
     title: "Hotel Cerca ESS+ Seguridad 2026 | Corferias",
     description: "Hotel a 7 min de ESS+ Seguridad 2026. Barrio seguro, desayuno temprano, guarda-equipaje para equipos.",
-    url: "https://hotelquintasdebogota.com/hotel-cerca-corferias-ess-seguridad-2026",
+    url: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-ess-seguridad-2026",
     siteName: "Hotel Quintas de Bogotá",
     locale: "es_CO",
     type: "website",
@@ -37,8 +37,8 @@ export default function ESSSeguridad2026Page() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Hotel ESS+ Seguridad 2026", item: "https://hotelquintasdebogota.com/hotel-cerca-corferias-ess-seguridad-2026" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Hotel ESS+ Seguridad 2026", item: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-ess-seguridad-2026" },
     ],
   };
   const eventJsonLd = {
@@ -54,7 +54,7 @@ export default function ESSSeguridad2026Page() {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: "Hotel Quintas de Bogotá",
-    url: "https://hotelquintasdebogota.com",
+    url: "https://www.hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },

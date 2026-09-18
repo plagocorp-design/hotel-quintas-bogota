@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Hotel Cerca Feria Belleza y Salud 2026 | Corferias",
   description: "Hotel a 7 min de la Feria Belleza y Salud 2026 en Corferias. Desayuno buffet, WiFi, guarda-equipaje gratis. Reserva directa sin comisión.",
   keywords: ["hotel feria belleza salud 2026","hotel belleza corferias","alojamiento cosmetica bogota","hotel feria estetica corferias","hotel cerca feria belleza bogota"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-cerca-corferias-belleza-salud-2026" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-belleza-salud-2026" },
   openGraph: {
     title: "Hotel Cerca Feria Belleza y Salud 2026 | Corferias",
     description: "Hotel a 7 min de la Feria Belleza y Salud 2026. Desayuno buffet, WiFi, cerca de spas y centros de estética.",
-    url: "https://hotelquintasdebogota.com/hotel-cerca-corferias-belleza-salud-2026",
+    url: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-belleza-salud-2026",
     siteName: "Hotel Quintas de Bogotá",
     locale: "es_CO",
     type: "website",
@@ -37,8 +37,8 @@ export default function BellezaSalud2026Page() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Hotel Feria Belleza y Salud 2026", item: "https://hotelquintasdebogota.com/hotel-cerca-corferias-belleza-salud-2026" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Hotel Feria Belleza y Salud 2026", item: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-belleza-salud-2026" },
     ],
   };
   const eventJsonLd = {
@@ -54,7 +54,7 @@ export default function BellezaSalud2026Page() {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: "Hotel Quintas de Bogotá",
-    url: "https://hotelquintasdebogota.com",
+    url: "https://www.hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },

@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Hotel con Desayuno Temprano Cerca Embajada Bogotá",
   description: "Desayuno desde 6:00am a 7 min de la Embajada de Estados Unidos. Café, huevos, pan, fruta. Desayuna antes de tu cita de visa. Reserva directa.",
   keywords: ["hotel desayuno temprano embajada bogota","hotel desayuno 6am embajada","desayuno antes de cita visa","hotel con desayuno cerca embajada americana","donde desayunar antes de cita embajada"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-desayuno-temprano-embajada-bogota" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-desayuno-temprano-embajada-bogota" },
   openGraph: {
     title: "Hotel con Desayuno Temprano Cerca Embajada Bogotá",
     description: "Desayuno 6:00-9:00am. 7 min de la Embajada. Café, huevos, pan, fruta incluido.",
-    url: "https://hotelquintasdebogota.com/hotel-desayuno-temprano-embajada-bogota",
+    url: "https://www.hotelquintasdebogota.com/hotel-desayuno-temprano-embajada-bogota",
     siteName: "Hotel Quintas de Bogotá",
     locale: "es_CO",
     type: "website",
@@ -37,15 +37,15 @@ export default function HotelDesayunoTempranoPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Hotel Desayuno Temprano Embajada", item: "https://hotelquintasdebogota.com/hotel-desayuno-temprano-embajada-bogota" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Hotel Desayuno Temprano Embajada", item: "https://www.hotelquintasdebogota.com/hotel-desayuno-temprano-embajada-bogota" },
     ],
   };
   const hotelJsonLd = {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: "Hotel Quintas de Bogotá",
-    url: "https://hotelquintasdebogota.com",
+    url: "https://www.hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },

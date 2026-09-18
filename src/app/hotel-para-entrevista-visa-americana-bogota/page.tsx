@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Hotel para Entrevista Visa Americana Bogotá | Tips 2026",
   description: "Hotel preparado para tu entrevista de visa americana. 7 min caminando de la Embajada. Tips de vestimenta, documentos, llegada 30 min antes. Reserva directa.",
   keywords: ["hotel entrevista visa americana bogota","tips entrevista visa americana","hotel para entrevista embajada usa","como preparar entrevista visa","hotel antes de entrevista visa bogota"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-para-entrevista-visa-americana-bogota" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-para-entrevista-visa-americana-bogota" },
   openGraph: {
     title: "Hotel para Entrevista Visa Americana Bogotá | Tips 2026",
     description: "Tips y hospedaje para tu entrevista de visa americana. 7 min de la Embajada.",
-    url: "https://hotelquintasdebogota.com/hotel-para-entrevista-visa-americana-bogota",
+    url: "https://www.hotelquintasdebogota.com/hotel-para-entrevista-visa-americana-bogota",
     siteName: "Hotel Quintas de Bogotá",
     locale: "es_CO",
     type: "website",
@@ -37,15 +37,15 @@ export default function HotelEntrevistaVisaPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Hotel Entrevista Visa Americana", item: "https://hotelquintasdebogota.com/hotel-para-entrevista-visa-americana-bogota" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Hotel Entrevista Visa Americana", item: "https://www.hotelquintasdebogota.com/hotel-para-entrevista-visa-americana-bogota" },
     ],
   };
   const hotelJsonLd = {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: "Hotel Quintas de Bogotá",
-    url: "https://hotelquintasdebogota.com",
+    url: "https://www.hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },

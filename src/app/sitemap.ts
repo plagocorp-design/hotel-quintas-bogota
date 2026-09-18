@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { cities, variants } from "@/data/cities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://hotelquintasdebogota.com";
+  const base = "https://www.hotelquintasdebogota.com";
   const now = new Date();
 
   // Páginas principales

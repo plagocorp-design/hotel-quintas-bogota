@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Hotel Gran Salón Inmobiliario 2026 | Cerca Corferias",
   description: "Hotel a 7 min del Gran Salón Inmobiliario 2026 en Corferias. WiFi fibra para gestiones inmobiliarias, desayuno, cerca de Gran Estación. Reserva directa.",
   keywords: ["hotel gran salon inmobiliario 2026","hotel inmobiliario corferias","alojamiento feria inmobiliaria bogota","hotel inversores inmobiliarios","hotel cerca corferias inmobiliario"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-cerca-corferias-gran-salon-inmobiliario-2026" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-gran-salon-inmobiliario-2026" },
   openGraph: {
     title: "Hotel Gran Salón Inmobiliario 2026 | Cerca Corferias",
     description: "Hotel a 7 min del Gran Salón Inmobiliario 2026. WiFi fibra para gestiones, cerca de Gran Estación.",
-    url: "https://hotelquintasdebogota.com/hotel-cerca-corferias-gran-salon-inmobiliario-2026",
+    url: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-gran-salon-inmobiliario-2026",
     siteName: "Hotel Quintas de Bogotá",
     locale: "es_CO",
     type: "website",
@@ -37,8 +37,8 @@ export default function GranSalonInmobiliario2026Page() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Hotel Gran Salón Inmobiliario 2026", item: "https://hotelquintasdebogota.com/hotel-cerca-corferias-gran-salon-inmobiliario-2026" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Hotel Gran Salón Inmobiliario 2026", item: "https://www.hotelquintasdebogota.com/hotel-cerca-corferias-gran-salon-inmobiliario-2026" },
     ],
   };
   const eventJsonLd = {
@@ -54,7 +54,7 @@ export default function GranSalonInmobiliario2026Page() {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: "Hotel Quintas de Bogotá",
-    url: "https://hotelquintasdebogota.com",
+    url: "https://www.hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },

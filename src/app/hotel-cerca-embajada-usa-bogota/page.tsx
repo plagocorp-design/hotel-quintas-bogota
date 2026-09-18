@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Hotel Cerca Embajada USA Bogotá | 7 Min a Pie",
   description: "Hotel a 7 minutos caminando de la Embajada USA en Bogotá. Desayuno 6:00-9:00, WiFi rápido, guarda-equipaje gratis. Teusaquillo, barrio seguro.",
   keywords: ["hotel cerca embajada usa bogota","hotel embajada usa bogota","hotel cerca embassy usa bogota","alojamiento embajada usa","hospedaje cerca embassy bogota"],
-  alternates: { canonical: "https://hotelquintasdebogota.com/hotel-cerca-embajada-usa-bogota" },
+  alternates: { canonical: "https://www.hotelquintasdebogota.com/hotel-cerca-embajada-usa-bogota" },
   openGraph: {
     title: "Hotel Cerca Embajada USA Bogotá | 7 Min a Pie",
     description: "Hotel a 7 min de la Embajada USA. WiFi, desayuno y guarda-equipaje gratis.",
-    url: "https://hotelquintasdebogota.com/hotel-cerca-embajada-usa-bogota",
+    url: "https://www.hotelquintasdebogota.com/hotel-cerca-embajada-usa-bogota",
     siteName: "Hotel Quintas de Bogotá",
     locale: "es_CO",
     type: "website",
@@ -37,15 +37,15 @@ export default function CercaEmbajadaUSAPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://hotelquintasdebogota.com/" },
-      { "@type": "ListItem", position: 2, name: "Hotel Cerca Embajada USA", item: "https://hotelquintasdebogota.com/hotel-cerca-embajada-usa-bogota" },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.hotelquintasdebogota.com/" },
+      { "@type": "ListItem", position: 2, name: "Hotel Cerca Embajada USA", item: "https://www.hotelquintasdebogota.com/hotel-cerca-embajada-usa-bogota" },
     ],
   };
   const hotelJsonLd = {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: "Hotel Quintas de Bogotá",
-    url: "https://hotelquintasdebogota.com",
+    url: "https://www.hotelquintasdebogota.com",
     address: { "@type": "PostalAddress", streetAddress: "Cl. 22 Bis #44A-19", addressLocality: "Bogotá", addressRegion: "Cundinamarca", addressCountry: "CO" },
     telephone: "+57 317 6760460",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.4", bestRating: "5", worstRating: "1", reviewCount: "472", ratingCount: "472" },
