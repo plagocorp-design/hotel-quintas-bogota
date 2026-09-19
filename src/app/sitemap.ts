@@ -1,94 +1,55 @@
 import type { MetadataRoute } from "next";
-import { cities, variants } from "@/data/cities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.hotelquintasdebogota.com";
   const now = new Date();
 
-  // Páginas principales
-  const mainPages = [
-    "",
-    "/habitaciones",
-    "/ubicacion",
-    "/hotel-cerca-embajada-americana-bogota",
-    "/hotel-para-cita-visa-americana-bogota",
-    "/hotel-cerca-embajada-usa-bogota",
-    "/alojamiento-cerca-embajada-americana-bogota",
-    "/hotel-donde-dormir-embajada-americana-bogota",
-    "/hotel-visa-americana-bogota",
-    "/hotel-cerca-embajada-estados-unidos-bogota",
-    "/hotel-para-entrevista-visa-americana-bogota",
-    "/hotel-maletas-embajada-americana-bogota",
-    "/hotel-desayuno-temprano-embajada-bogota",
-    "/hotel-cita-visa-usa-bogota",
-    "/hotel-cerca-corferias-bogota",
-    "/hotel-cerca-corferias-alimentec-2026",
-    "/hotel-cerca-corferias-belleza-salud-2026",
-    "/hotel-cerca-corferias-ess-seguridad-2026",
-    "/hotel-cerca-corferias-expoartesanias-2026",
-    "/hotel-cerca-corferias-feria-hogar-2026",
-    "/hotel-cerca-corferias-fib-industrial-2026",
-    "/hotel-cerca-corferias-fima-2026",
-    "/hotel-cerca-corferias-gran-salon-ferretero-2026",
-    "/hotel-cerca-corferias-gran-salon-inmobiliario-2026",
-    "/hotel-cerca-corferias-meditech-2026",
-    "/hotel-cerca-aeropuerto-el-dorado",
-    "/comparativa/hotel-quintas-vs-hyatt-vs-hilton-corferias",
-    "/sobre-nosotros",
-    "/reservas",
-    "/galeria",
-    "/servicios",
-    "/contacto",
-    "/blog",
-    "/blog/cita-visa-americana-que-llevar",
-    "/blog/hotel-cerca-embajada-comparativa",
-    "/blog/feria-libro-corferias-hotel",
-    "/blog/aeropuerto-eldorado-teusaquillo",
-    "/blog/parque-simon-bolivar-hotel-familiar",
-    "/blog/teusaquillo-vs-chapinero",
-    "/blog/donde-dejar-maletas-embajada",
-    "/blog/como-llegar-aeropuerto-madrugada",
-    "/blog/que-hacer-cerca-corferias",
-    "/blog/gran-estacion-movistar-hotel",
-    "/blog/jardin-botanico-hotel",
-    "/blog/universidad-nacional-hotel",
-    "/blog/hotel-barato-teusaquillo",
-    "/blog/hotel-tranquilo-bogota",
-    "/blog/alojamiento-cerca-corferias-embajada",
-    "/blog/hotel-10-minutos-aeropuerto",
-    "/blog/hotel-recomendado-embajada-corferias",
-    "/blog/hotel-con-desayuno-corferias",
-    "/blog/hotel-para-familias-bogota",
-    "/blog/guia-teusaquillo-hotel",
+  const urls: MetadataRoute.Sitemap = [
+    // Núcleo
+    { url: `${base}/`, lastModified: now, changeFrequency: "daily", priority: 1 },
+    { url: `${base}/habitaciones`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/reservas`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/ubicacion`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/servicios`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/galeria`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/contacto`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/sobre-nosotros`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+
+    // Embajada / visa — las que venden
+    { url: `${base}/hotel-cerca-embajada-americana-bogota`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/hotel-para-cita-visa-americana-bogota`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${base}/hotel-cerca-embajada-usa-bogota`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${base}/hotel-visa-americana-bogota`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${base}/blog/cita-visa-americana-que-llevar`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/donde-dejar-maletas-embajada`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/hotel-cerca-embajada-comparativa`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/hotel-recomendado-embajada-corferias`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+
+    // Corferias — las que venden
+    { url: `${base}/hotel-cerca-corferias-bogota`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/comparativa/hotel-quintas-vs-hyatt-vs-hilton-corferias`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/blog/que-hacer-cerca-corferias`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/feria-libro-corferias-hotel`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/hotel-con-desayuno-corferias`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/alojamiento-cerca-corferias-embajada`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+
+    // Aeropuerto
+    { url: `${base}/hotel-cerca-aeropuerto-el-dorado`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${base}/blog/como-llegar-aeropuerto-madrugada`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/aeropuerto-eldorado-teusaquillo`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/hotel-10-minutos-aeropuerto`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+
+    // Blog relevantes
+    { url: `${base}/blog/hotel-barato-teusaquillo`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/hotel-para-familias-bogota`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/hotel-tranquilo-bogota`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/guia-teusaquillo-hotel`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/parque-simon-bolivar-hotel-familiar`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/teusaquillo-vs-chapinero`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/universidad-nacional-hotel`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/gran-estacion-movistar-hotel`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
 
-  const mainSitemap: MetadataRoute.Sitemap = mainPages.map((p) => ({
-    url: `${base}${p}`,
-    lastModified: now,
-    changeFrequency: (p === "" ? "daily" : "weekly") as "daily" | "weekly",
-    priority: p === "" ? 1 : p.startsWith("/hotel-cerca") ? 0.9 : 0.7,
-  }));
-
-  // Páginas de ciudades
-  const citySitemap: MetadataRoute.Sitemap = cities.map((c) => ({
-    url: `${base}/${c.slug}`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
-
-  // Páginas de variantes por ciudad
-  const variantSitemap: MetadataRoute.Sitemap = [];
-  for (const c of cities) {
-    for (const v of variants) {
-      variantSitemap.push({
-        url: `${base}/${c.slug}/${v.slug}`,
-        lastModified: now,
-        changeFrequency: "weekly" as const,
-        priority: 0.7,
-      });
-    }
-  }
-
-  return [...mainSitemap, ...citySitemap, ...variantSitemap];
+  return urls;
 }
